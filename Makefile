@@ -6,7 +6,7 @@
 #    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:09:01 by andcarva          #+#    #+#              #
-#    Updated: 2025/01/14 16:57:17 by andcarva         ###   ########.fr        #
+#    Updated: 2025/01/17 19:32:22 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC_DIR= Src
 LIBFT= Includes/Libft/libft.a
 MLX= MinilibX/minilibx-linux/libmlx.a
 
-SRC_FILES= main.c file1.c file2.c
+SRC_FILES= main.c init.c drawmap.c utils.c
 
 OBJ= $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 SRC= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
