@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/17 20:51:11 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/20 20:26:46 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,11 @@
 # include <string.h>
 # include <stdint.h>
 # include "../Includes/Libft/libft.h"
-# include "../MinilibX/minilibx-linux/mlx.h"
+# include "../mlx_linux/mlx.h"
 
-# define WIDTH 1920
-# define HEIGHT 1080
-
-typedef struct s_fdf
-{
-	t_window	wind;
-	t_map		*map;
-	t_point		*point;
-}				t_fdf;
+# define WIDTH 600
+# define HEIGHT 400
+# define ESC 65307
 
 typedef	struct s_window
 {
@@ -43,7 +37,6 @@ typedef	struct s_window
 	int		line_length;
 	int		endian;
 }			t_window;
-
 
 typedef struct s_map
 {
@@ -61,16 +54,28 @@ typedef struct s_point
 	float	cord[3];
 }			t_point;
 
+
+// typedef struct s_fdf
+// {
+// 	t_window	*wind;
+// 	t_map		*map;
+// 	t_point		*point;
+// }				t_fdf;
+
 // INIT_FUNC
-void	window_init();
+void	window_init(t_window *wind);
 
 // CLOSE_FUNC
 void	window_close(t_window *wind);
-int		destroy(t_window *wind);
+
+// KEYBOARD
+void	hook_control(t_window *wind);
+int		key_press(int key_code, t_window *wind);
 
 // OTHERS
-int	main(void);
+int		main(void);
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
-int		key_hook(t_window *wind);
+int		testkey(int key_code, t_window *wind);
+int		key_press(int key_code, t_window *wind);
 
 #endif // FDF_H
