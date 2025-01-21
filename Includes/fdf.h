@@ -6,7 +6,7 @@
 /*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/20 20:26:46 by andre            ###   ########.fr       */
+/*   Updated: 2025/01/21 18:45:19 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef	struct s_window
 	int		bitpp;
 	int		line_length;
 	int		endian;
+	// t_map		*map;
+	// t_point		*point;
 }			t_window;
 
 typedef struct s_map
@@ -65,12 +67,16 @@ typedef struct s_point
 // INIT_FUNC
 void	window_init(t_window *wind);
 
+
 // CLOSE_FUNC
 void	window_close(t_window *wind);
 
 // KEYBOARD
 void	hook_control(t_window *wind);
 int		key_press(int key_code, t_window *wind);
+
+// DRAW_MAP
+void	put_line(t_window *wind);
 
 // OTHERS
 int		main(void);
