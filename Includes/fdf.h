@@ -6,7 +6,7 @@
 /*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/21 18:45:19 by andre            ###   ########.fr       */
+/*   Updated: 2025/01/27 22:16:29 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 # define FDF_H
 
 # include <stdio.h>
-# include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
 # include <limits.h>
 # include <string.h>
 # include <stdint.h>
 # include "../Includes/Libft/libft.h"
-# include "../mlx_linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 
 # define WIDTH 600
 # define HEIGHT 400
