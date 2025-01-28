@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:31:39 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/21 18:43:58 by andre            ###   ########.fr       */
+/*   Updated: 2025/01/28 14:41:15 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(void)
 {
-	t_window	wind;
+	t_fdf	fdf;
 	
-	window_init(&wind);
-	put_line(&wind);
-	hook_control(&wind);
-	mlx_loop(wind.mlx);
+	window_init(&fdf.window);
+	put_line(&fdf.window);
+	hook_control(&fdf.window);
+	mlx_loop(fdf.window.mlx);
 }

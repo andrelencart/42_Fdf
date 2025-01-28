@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/27 22:16:29 by andre            ###   ########.fr       */
+/*   Updated: 2025/01/28 18:18:32 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ typedef	struct s_window
 	int		bitpp;
 	int		line_length;
 	int		endian;
-	// t_map		*map;
-	// t_point		*point;
 }			t_window;
 
 typedef struct s_map
@@ -55,13 +53,12 @@ typedef struct s_point
 	float	cord[3];
 }			t_point;
 
-
-// typedef struct s_fdf
-// {
-// 	t_window	*wind;
-// 	t_map		*map;
-// 	t_point		*point;
-// }				t_fdf;
+typedef struct s_fdf
+{
+	t_window	window;
+	// t_map		*map;
+	// t_point		*point;
+}				t_fdf;
 
 // INIT_FUNC
 void	window_init(t_window *wind);
@@ -77,10 +74,11 @@ int		key_press(int key_code, t_window *wind);
 // DRAW_MAP
 void	put_line(t_window *wind);
 
-// OTHERS
+// UTILS
 int		main(void);
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
 int		testkey(int key_code, t_window *wind);
 int		key_press(int key_code, t_window *wind);
+int		abs_v(int n);
 
 #endif // FDF_H

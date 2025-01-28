@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/20 20:28:05 by andre            ###   ########.fr       */
+/*   Updated: 2025/01/28 18:17:22 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,11 @@ int	testkey(int key_code, t_window *wind)
 	(void)wind;
 	printf("key_code: %d\n", key_code);
 	return (0);
+}
+
+int	abs_v(int n)
+{
+	if (n < 0)
+		n = -n;
+	return (n);
 }
