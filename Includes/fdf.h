@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/28 18:18:32 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:18:58 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <limits.h>
 # include <string.h>
 # include <stdint.h>
+# include <errno.h>
 # include "../Includes/Libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
@@ -37,35 +38,38 @@ typedef	struct s_window
 	int		endian;
 }			t_window;
 
+typedef struct s_point
+{
+	float **cord;
+}			t_point;
+
 typedef struct s_map
 {
+	char **mtz;
 	int	ang[3];
 	int	z_max;
 	int	z_min;
 	int	scale;
 	int	orig_cord[3];
-	int	limt_x;
-	int	limt_y;
+	int	hait;
+	int	with;
+	t_point		point;
 }		t_map;
-
-typedef struct s_point
-{
-	float	cord[3];
-}			t_point;
 
 typedef struct s_fdf
 {
 	t_window	window;
-	// t_map		*map;
-	// t_point		*point;
+	t_map		map;
 }				t_fdf;
 
 // INIT_FUNC
 void	window_init(t_window *wind);
-
+void	map_init(t_map *map, char *file);
+void	map_info(t_map *map, char *file);
+void	map_matriz(t_map *map, char *file);
 
 // CLOSE_FUNC
-void	window_close(t_window *wind);
+int	window_close(t_window *wind);
 
 // KEYBOARD
 void	hook_control(t_window *wind);
@@ -75,10 +79,10 @@ int		key_press(int key_code, t_window *wind);
 void	put_line(t_window *wind);
 
 // UTILS
-int		main(void);
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
 int		testkey(int key_code, t_window *wind);
 int		key_press(int key_code, t_window *wind);
 int		abs_v(int n);
+
 
 #endif // FDF_H

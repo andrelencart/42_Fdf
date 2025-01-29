@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: andre <andre@student.42.fr>                +#+  +:+       +#+         #
+#    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:09:01 by andcarva          #+#    #+#              #
-#    Updated: 2025/01/21 19:10:24 by andre            ###   ########.fr        #
+#    Updated: 2025/01/29 13:58:17 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC_DIR= Src
 LIBFT= Includes/Libft/libft.a
 MLX= minilibx-linux/libmlx.a
 
-SRC_FILES= main.c init.c drawmap.c utils.c controls.c keyboard.c
+SRC_FILES= fdf.c init.c drawmap.c utils.c hooks.c points.c
 
 OBJ= $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 SRC= $(addprefix $(SRC_DIR)/, $(SRC_FILES))

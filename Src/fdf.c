@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:31:39 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/28 14:41:15 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:13:04 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	t_fdf	fdf;
 	
-	window_init(&fdf.window);
-	put_line(&fdf.window);
-	hook_control(&fdf.window);
-	mlx_loop(fdf.window.mlx);
+	if (ac == 2)
+	{
+		window_init(&fdf.window);
+		map_init(&fdf.map, av[1]);
+		put_line(&fdf.window);
+		hook_control(&fdf.window);
+		mlx_loop(fdf.window.mlx);	
+	}
 }

@@ -3,18 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   keyboard.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:23:35 by andre             #+#    #+#             */
-/*   Updated: 2025/01/20 20:25:00 by andre            ###   ########.fr       */
+/*   Updated: 2025/01/29 13:56:56 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
-int	key_press(int key_code, t_window *wind)
-{
-	if (key_code == ESC)
-		window_close(wind);
- 	return (0);
-}
