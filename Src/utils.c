@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 15:37:31 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:34:07 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	testkey(int key_code, t_window *wind)
 	return (0);
 }
 
-int	abs_v(int n)
+float	abs_v(float n)
 {
 	if (n < 0)
 		n = -n;
