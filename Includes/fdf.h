@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 14:38:14 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/30 17:35:13 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ typedef	struct s_window
 typedef struct s_point
 {
 	float **cord;
+	float	dx;
+	float	dy;
 }			t_point;
 
 typedef struct s_map
@@ -65,6 +67,8 @@ typedef struct s_fdf
 // INIT_FUNC
 void	window_init(t_window *wind);
 void	map_init(t_map *map, char *file);
+
+// MAP_FUNC
 void	map_info(t_map *map, char *file);
 void	map_matriz(t_map *map, char *file);
 
@@ -77,6 +81,8 @@ int		key_press(int key_code, t_window *wind);
 
 // DRAW_MAP
 void	put_line(t_window *wind);
+void	draw_map(t_map *map);
+void	map_delta(t_map *map);
 
 // UTILS
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
