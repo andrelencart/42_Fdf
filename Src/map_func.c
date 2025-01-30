@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 19:03:43 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/30 21:36:05 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	map_matriz(t_map *map, char *file)
 		line = get_next_line(fd);
 		temp = line;
 		map_cord_put(temp, y, map);
+		// printf("Cord: %f\n", map->point.cord[y][x]);
 		free(line);
 		map->point.cord[y][x] = 0;
 		y++;
