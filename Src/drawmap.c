@@ -6,19 +6,15 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 19:04:22 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:14:09 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
-void	draw_map(t_map *map)
-{
-	map_delta(map);
-}
-// void	dda_alg(t_map *map)
+// void	draw_map(t_map *map)
 // {
-// 	map->point.dx = abs_v(map->point.cord)
+// 	map_delta(map);
 // }
 
 void	map_delta(t_map *map)
@@ -30,6 +26,7 @@ void	map_delta(t_map *map)
 	while (map->point.cord[y])
 	{
 		x = 0;
+		// printf("x: %f\n", map->point.cord[y][x]);
 		while (map->point.cord[y][x])
 		{
 			if(x + 1 == '\0' || y + 1 == '\0')
