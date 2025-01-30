@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/29 14:10:04 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/30 14:05:53 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,15 @@ int	abs_v(int n)
 	return (n);
 }
 
+void	free_cord(t_map *map)
+{
+	int	y;
+	
+	y = 0;
+	while (y < map->hait)
+	{
+		free(map->point.cord[y]);
+		y++;
+	}
+	free(map->point.cord);
+}

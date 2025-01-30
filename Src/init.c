@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/29 19:44:26 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:04:24 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,38 @@ void	map_info(t_map *map, char *file)
 	}
 	while (map->mtz[map->with])
 	{
-		map->with++;
 		free(map->mtz[map->with]);
+		map->with++;
 	}
 	free(map->mtz);
-	free(line);
 	close(fd);
+}
+
+static void	map_cord_put(char *line, int y, t_map *map)
+{
+	int	x;
+	
+	x = 0;
+	while (*line && *line != '\n')
+	{
+		if (*line == ' ')
+			line++;
+		map->point.cord[y][x] = atoi(line);
+		// ft_printf("Line %d\n", atoi(line));
+		// ft_printf("y: %d, x: %d, z: %d\n", y, x, (int)map->point.cord[y][x]);
+		while ((*line >= '0' && *line <= '9'))
+			line++;	
+		x++;
+	}
 }
 
 void	map_matriz(t_map *map, char *file)
 {
 	int	fd;
-	int	x;
+	char *temp;
+	char *line;
+	int x;
 	int	y;
-	const char *line;
 	
 	y = 0;
 	fd = open(file, O_RDONLY);
@@ -79,20 +97,13 @@ void	map_matriz(t_map *map, char *file)
 		if (!map->point.cord[y])
 			perror("Cord not initialized!");
 		line = get_next_line(fd);
-		while (*line && *line != '\n')
-		{
-			if (*line == ' ')
-				line++;
-			// printf("Val = %d\n", atoi(line));
-			map->point.cord[y][x] = atoi(line);
-			// printf("Line = %s\n", line);
-			// printf("Cord = %d\n", (int)map->point.cord[y][x]);
-			while ((*line >= '0' && *line <= '9'))
-				line++;	
-			x++;
-		}
+		temp = line;
+		map_cord_put(temp, y, map);
+		free(line);
 		map->point.cord[y][x] = 0;
 		y++;
 	}
 	map->point.cord[y] = NULL;
+	free_cord(map);
+	close (fd);
 }
