@@ -6,16 +6,11 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 17:24:13 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 18:59:53 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
-
-void	draw_map(t_map *map)
-{
-	dda_alg(map);
-}
 
 void	map_info(t_map *map, char *file)
 {

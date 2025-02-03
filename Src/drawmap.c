@@ -6,13 +6,13 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 18:17:08 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:05:29 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
-void	dda_alg(t_map *map, t_window *img, int color)
+void	dda_alg(t_map *map, t_window *img)
 {
 	int	y;
 	int	x;
@@ -24,61 +24,47 @@ void	dda_alg(t_map *map, t_window *img, int color)
 		while (x < map->with)
 		{
 			if(x != map->with - 1)
-				dda_steps(map, x, y, x + 1, y);
+				dda_steps(map, img, (t_point){0, x, y}, (t_point){0, x + 1, y});
 			if(y != map->hait - 1)
-				dda_steps(map, x, y, x, y + 1);
-			ft_printf("x: %d y: %d z: %d dx: %d dy: %d\n", x, y, (int)map->point.cord[y][x], (int)map->point.dx, (int)map->point.dy);
+				dda_steps(map, img, (t_point){0, x, y}, (t_point){0, x, y + 1});
+			// ft_printf("x: %d y: %d z: %d dx: %d dy: %d\n", x, y, (int)map->point.cord[y][x], (int)map->point.dx, (int)map->point.dy);
 			x++;
 		}
 		map->point.cord[y][x] = 0;
 		y++;
 	}
+	mlx_put_image_to_window(img->mlx, img->mlx_window, img->img, 0, 0);
 	free_cord(map);
 }
 
-void	dda_steps(t_map *map, int x1, int x2, int y1, int y2)
+void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 {
 	float	step;
 	float	xin;
 	float	yin;
 	int		i;
 
-	map->point.dx = x2 - x1;
-	map->point.dy = y2 - y1;
+	map->point.dx = cord2.dx - cord1.dx;
+	map->point.dy = cord2.dy - cord1.dy;
+	// printf("cord1.x %d cord1.y %d cord2.x %d cord2.y %d\n", (int)cord1.dx, (int)cord1.dy, (int)cord2.dx, (int)cord2.dy);
 	if (fabs_v(map->point.dx) >= fabs_v(map->point.dy))
 		step = fabs_v(map->point.dx);
 	else
 		step = fabs_v(map->point.dy);
 	if (step == 0)
-		step == 1;
+		step = 1;
 	xin = map->point.dx / step;
 	yin = map->point.dy / step;
 	i = 0;
 	while (i <= step)
 	{
-		my_mlx_pixel_put();
-		x1 += xin;
-		y1 += yin;
+		my_mlx_pixel_put(img, (int)cord1.dx, (int)cord1.dy, map->color);
+		cord1.dx += xin;
+		cord1.dy += yin;
 		i++;
 	}
 }
 
-// void	dda_draw(float xin, float yin, int x1, int y1, float step)
-// {
-// 	// float	x;
-// 	// float	y;
-// 	int		i;
-// 	// x = x1;
-// 	// y = y1;
-// 	i = 0;
-// 	while (i <= step)
-// 	{
-// 		my_mlx_pixel_put();
-// 		x1 += xin;
-// 		y1 += yin;
-// 		i++;
-// 	}
-// }
 // void	draw_pixel(t_window *wind)
 // {
 // 	int	y;

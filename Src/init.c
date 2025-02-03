@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 17:23:22 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:01:37 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	map_init(t_map *map, char *file)
 {
 	map->hait = 0;
 	map->with = 0;
+	map->color = WHITE;
 	map_info(map, file);
 	map->point.cord = malloc(sizeof(float *) * (map->hait + 1));
 	if (!map->point.cord)

@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:07:33 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 15:40:26 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:03:42 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 int	window_close(t_window *wind)
 {
-	// printf("mlx = %p\n", wind->mlx);
-	// printf("window = %p\n", wind->mlx_window);
-	// printf("img = %p\n", wind->img);
-	// printf("addr = %p\n", wind->addr);
 	mlx_destroy_image(wind->mlx, wind->img);
 	mlx_destroy_window(wind->mlx, wind->mlx_window);
 	mlx_destroy_display(wind->mlx);

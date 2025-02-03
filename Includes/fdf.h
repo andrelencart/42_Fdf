@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 17:58:16 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 19:01:25 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define WIDTH 600
 # define HEIGHT 400
 # define ESC 65307
+# define WHITE 0x00FFFFFF
 
 typedef	struct s_window
 {
@@ -55,6 +56,7 @@ typedef struct s_map
 	int	orig_cord[3];
 	int	hait;
 	int	with;
+	int	color;
 	t_point		point;
 }		t_map;
 
@@ -82,8 +84,8 @@ int		key_press(int key_code, t_window *wind);
 // DRAW_MAP
 void	put_line(t_window *wind);
 void	draw_map(t_map *map);
-void	dda_alg(t_map *map);
-void	dda_steps(t_map *map);
+void	dda_alg(t_map *map, t_window *img);
+void	dda_steps(t_map *map, t_window *img,t_point cord1, t_point cord2);
 
 // UTILS
 void		my_mlx_pixel_put(t_window *img, int x, int y, int color);
