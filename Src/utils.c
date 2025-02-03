@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 18:34:07 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:08:13 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,18 @@ void	free_cord(t_map *map)
 	}
 	free(map->point.cord);
 }
+
+// void	print_cords(t_map *map, int *y, int *x)
+// {
+
+// 	while (y < map->hait)
+// 	{
+
+// 		while (x < map->with)
+// 		{
+// 			ft_printf("y: %d, x: %d, z: %d\n", y, x, (int)map->point.cord[y][x]);
+// 			x++;
+// 		}
+// 		y++;
+// 	}
+// }

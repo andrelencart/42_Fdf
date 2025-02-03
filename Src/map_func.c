@@ -6,11 +6,16 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 21:36:05 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:44:20 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
+
+void	draw_map(t_map *map)
+{
+	dda_alg(map);
+}
 
 void	map_info(t_map *map, char *file)
 {
@@ -78,10 +83,10 @@ void	map_matriz(t_map *map, char *file)
 		map_cord_put(temp, y, map);
 		// printf("Cord: %f\n", map->point.cord[y][x]);
 		free(line);
-		map->point.cord[y][x] = 0;
+		// map->point.cord[y][x] = 0;
 		y++;
 	}
-	map->point.cord[y] = NULL;
+	// map->point.cord[y] = NULL;
 	// free_cord(map);
 	close (fd);
 }

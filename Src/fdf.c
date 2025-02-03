@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:31:39 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 19:08:43 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:36:49 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	main(int ac, char **av)
 	{
 		window_init(&fdf.window);
 		map_init(&fdf.map, av[1]);
-		map_delta(&fdf.map);
+		draw_map(&fdf.map);
+		// printf("AAAAAAAAAAAAAA\n");
 		put_line(&fdf.window);
 		hook_control(&fdf.window);
 		mlx_loop(fdf.window.mlx);

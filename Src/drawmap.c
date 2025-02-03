@@ -6,39 +6,47 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 21:35:51 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:13:48 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
-// void	draw_map(t_map *map)
-// {
-// 	map_delta(map);
-// }
-
-void	map_delta(t_map *map)
+void	dda_alg(t_map *map)
 {
 	int	y;
 	int	x;
 	
 	y = 0;
-	while (map->point.cord[y])
+	while (y < map->hait)
 	{
 		x = 0;
-		while (map->point.cord[y][x])
+		while (x < map->with)
 		{
-			printf("x: %f\n", map->point.cord[y][x]);
-			if(x + 1 == '\0' || y + 1 == '\0')
-				return ;
-			map->point.dx = abs_v(map->point.cord[y][x + 1] - map->point.cord[y][x]);
-			map->point.dy = abs_v(map->point.cord[y + 1][x] - map->point.cord[y][x]);
-			printf("dx: %f\n", map->point.dx);
-			printf("dy: %f\n", map->point.dy);
+			if(x != map->with - 1)
+				map->point.dx = abs_v(map->point.cord[y][x + 1] - map->point.cord[y][x]);				
+			if(y != map->hait - 1)
+				map->point.dy = abs_v(map->point.cord[y + 1][x] - map->point.cord[y][x]);
+			// ft_printf("dx: %d, dy: %d\n", (int)map->point.dx, (int)map->point.dy);
+			dda_steps(map);
 			x++;
 		}
+		map->point.cord[y][x] = 0;
 		y++;
 	}
+	map->point.cord[y] = NULL;
+	free_cord(map);
+}
+
+void	dda_steps(t_map *map)
+{
+	float step;
+
+	step = 0;
+	if (map->point.dx <= map->point.dy)
+		step = map->point.dx;
+	else
+		step = map->point.dy;
 }
 
 void	put_line(t_window *wind)
