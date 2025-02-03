@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 14:08:13 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:58:11 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	testkey(int key_code, t_window *wind)
 	return (0);
 }
 
-float	abs_v(float n)
+float	fabs_v(float n)
 {
 	if (n < 0)
 		n = -n;
@@ -47,6 +47,13 @@ void	free_cord(t_map *map)
 	free(map->point.cord);
 }
 
+void	ft_error(char *error_msg, int sys_func)
+{
+	if (!sys_func)
+		ft_putendl_fd(error_msg, STDERR_FILENO);
+	else
+		perror(error_msg);
+}
 // void	print_cords(t_map *map, int *y, int *x)
 // {
 

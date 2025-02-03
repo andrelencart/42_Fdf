@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 15:11:21 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:58:16 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,10 @@ void	dda_steps(t_map *map);
 void		my_mlx_pixel_put(t_window *img, int x, int y, int color);
 int			testkey(int key_code, t_window *wind);
 int			key_press(int key_code, t_window *wind);
-float		abs_v(float n);
+float		fabs_v(float n);
 void		free_cord(t_map *map);
-void		print_cords(t_map *map);
+// void		print_cords(t_map *map);
+void		ft_error(char *error_msg, int sys_func);
 
 
 #endif // FDF_H

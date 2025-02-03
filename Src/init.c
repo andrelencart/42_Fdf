@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/01/30 17:35:36 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:23:22 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ void	map_init(t_map *map, char *file)
 	map_info(map, file);
 	map->point.cord = malloc(sizeof(float *) * (map->hait + 1));
 	if (!map->point.cord)
-		perror("Cord not initialized!");
+		ft_error("Cord not initialized!", 0);
 	map_matriz(map, file);
 }

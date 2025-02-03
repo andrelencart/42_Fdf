@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 14:44:20 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:24:13 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	map_info(t_map *map, char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		perror("Map fd error!");
+		ft_error("Map fd error!", 0);
 	line = get_next_line(fd);
 	if (!line)
-		perror("Map empty!");
+		ft_error("Map empty!", 0);
 	map->mtz = ft_split(line, ' ');
 	while (line)
 	{
@@ -77,16 +77,13 @@ void	map_matriz(t_map *map, char *file)
 		x = 0;
 		map->point.cord[y] = malloc(sizeof(float) * (map->with + 1));
 		if (!map->point.cord[y])
-			perror("Cord not initialized!");
+			ft_error("Cord not initialized!", 0);
 		line = get_next_line(fd);
 		temp = line;
 		map_cord_put(temp, y, map);
 		// printf("Cord: %f\n", map->point.cord[y][x]);
 		free(line);
-		// map->point.cord[y][x] = 0;
 		y++;
 	}
-	// map->point.cord[y] = NULL;
-	// free_cord(map);
 	close (fd);
 }
