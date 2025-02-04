@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   fdf_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 17:58:11 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:45:30 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	free_cord(t_map *map)
 	y = 0;
 	while (y < map->hait)
 	{
-		free(map->point.cord[y]);
+		free(map->point[y]);
 		y++;
 	}
-	free(map->point.cord);
+	free(map->point);
 }
 
 void	ft_error(char *error_msg, int sys_func)
@@ -54,17 +54,3 @@ void	ft_error(char *error_msg, int sys_func)
 	else
 		perror(error_msg);
 }
-// void	print_cords(t_map *map, int *y, int *x)
-// {
-
-// 	while (y < map->hait)
-// 	{
-
-// 		while (x < map->with)
-// 		{
-// 			ft_printf("y: %d, x: %d, z: %d\n", y, x, (int)map->point.cord[y][x]);
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// }

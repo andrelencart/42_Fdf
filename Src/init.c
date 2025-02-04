@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 19:01:37 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:58:49 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,16 @@ void	window_init(t_window *wind)
 	wind->img = mlx_new_image(wind->mlx, WIDTH, HEIGHT);
 	wind->addr = mlx_get_data_addr(wind->img, &wind->bitpp, \
 		&wind->line_length, &wind->endian);
-	// printf("mlx = %p\n", wind->mlx);
-	// printf("window = %p\n", wind->mlx_window);
-	// printf("img = %p\n", wind->img);
-	// printf("addr = %p\n", wind->addr);
 }
 
 void	map_init(t_map *map, char *file)
 {
 	map->hait = 0;
 	map->with = 0;
-	map->color = WHITE;
+	map->orig_cord[X] = WIDTH / 2;
+	map->orig_cord[Y] = HEIGHT / 2;
+	map->orig_cord[Z] = 0;
+	parser(map, file);
 	map_info(map, file);
-	map->point.cord = malloc(sizeof(float *) * (map->hait + 1));
-	if (!map->point.cord)
-		ft_error("Cord not initialized!", 0);
 	map_matriz(map, file);
 }

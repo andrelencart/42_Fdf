@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/03 19:01:25 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/04 18:55:11 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,24 @@
 # include <string.h>
 # include <stdint.h>
 # include <errno.h>
+#include <stdbool.h>
 # include "../Includes/Libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
-# define WIDTH 600
-# define HEIGHT 400
+// MAP_DEF
+# define WIDTH 1920
+# define HEIGHT 1080
+
+// KEY_DEF
 # define ESC 65307
+
+// COLOR_DEF
 # define WHITE 0x00FFFFFF
+
+// CORD_DEF
+# define X 0
+# define Y 1
+# define Z 2
 
 typedef	struct s_window
 {
@@ -41,24 +52,24 @@ typedef	struct s_window
 
 typedef struct s_point
 {
-	float **cord;
+	float 	cord[3];
 	float	dx;
 	float	dy;
+	int		color;
 }			t_point;
 
 typedef struct s_map
 {
-	char **mtz;
-	int	ang[3];
-	int	z_max;
-	int	z_min;
-	int	scale;
-	int	orig_cord[3];
-	int	hait;
-	int	with;
-	int	color;
-	t_point		point;
-}		t_map;
+	char 	**mtz;
+	int		ang[3];
+	int		z_max;
+	int		z_min;
+	int		scale;
+	int		orig_cord[3];
+	int		hait;
+	int		with;
+	t_point	**point;
+}			t_map;
 
 typedef struct s_fdf
 {
@@ -70,9 +81,10 @@ typedef struct s_fdf
 void	window_init(t_window *wind);
 void	map_init(t_map *map, char *file);
 
-// MAP_FUNC
+// PARCER_FUNC
 void	map_info(t_map *map, char *file);
 void	map_matriz(t_map *map, char *file);
+void	parser(t_map *map, char *file);
 
 // CLOSE_FUNC
 int		window_close(t_window *wind);
@@ -93,8 +105,8 @@ int			testkey(int key_code, t_window *wind);
 int			key_press(int key_code, t_window *wind);
 float		fabs_v(float n);
 void		free_cord(t_map *map);
-// void		print_cords(t_map *map);
 void		ft_error(char *error_msg, int sys_func);
+bool		fd_check(int *fd, char *file);
 
 
 #endif // FDF_H
