@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:23:35 by andre             #+#    #+#             */
-/*   Updated: 2025/02/05 16:41:15 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:39:13 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	fd_check(int *fd, char *file)
 	return (false);
 }
 
-static void	error_extension(char *file)
+void	error_extension(char *file)
 {
 	size_t	len;
 	
@@ -41,17 +41,38 @@ static void	error_extension(char *file)
 	}
 }
 
-static void	map_format(char *file)
+void	map_format(char *file)
 {
-	char **map;
+	char	**map_row;
+	char	*line;
+	int		fd;
+	int		prev_row;
+	int		x;
+	int		y;
 
-	map = malloc(sizeof(char **));
-	
+	fd = open(file, O_RDONLY);
+	if(fd_check(&fd, file))
+		exit (0);
+	y = 0;
+	prev_row = -1;
+	while ((line = get_next_line(fd)))
+	{
+		map_row = ft_split(line, ' ');
+		if (!map_row)
+			return ;
+		free(line);
+		x = ft_strlen(map_row[x]);
+		if (prev_row != -1 && prev_row != x)
+		{
+			close (fd);
+			ft_error("MAP NOT RETANGULAR!", 0);
+			exit (0);
+		}
+		prev_row = x;
+		y++;
+	}
+	close (fd);
 }
-void	parser(char *file)
-{
-	error_extension(file);
-	map_format(file);
-}
+
 
 

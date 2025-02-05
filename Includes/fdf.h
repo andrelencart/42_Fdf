@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/05 15:36:58 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:39:19 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	map_init(t_map *map, char *file);
 void	map_info(t_map *map, char *file);
 void	map_matriz(t_map *map, char *file);
 void	parser(char *file);
+void	map_format(char *file);
+void	error_extension(char *file);
 
 // CLOSE_FUNC
 int		window_close(t_window *wind);
