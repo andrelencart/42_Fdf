@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/04 18:45:30 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:16:06 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	my_mlx_pixel_put(t_window *img, int x, int y, int color)
 int	testkey(int key_code, t_window *wind)
 {
 	(void)wind;
-	printf("key_code: %d\n", key_code);
+	ft_printf("key_code: %d\n", key_code);
 	return (0);
 }
 
