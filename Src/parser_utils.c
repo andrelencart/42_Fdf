@@ -6,27 +6,29 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:23:35 by andre             #+#    #+#             */
-/*   Updated: 2025/02/05 18:39:13 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:27:32 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
-bool	fd_check(int *fd, char *file)
+int	fd_check(char *file)
 {
-	*fd = open(file, O_RDONLY);
-	if (*fd < 0)
+	int	fd;
+	
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
 	{
 		ft_error("ERROR OPENING FILE", 0);
-		return (true);
+		exit (0);
 	}
-	if (read(*fd, 0, 0) < 0)
+	if (read(fd, 0, 0) < 0)
 	{
 		ft_error("ERROR READING FILE", 0);
-		close(*fd);
-		return (true);
+		close(fd);
+		exit (0);
 	}
-	return (false);
+	return (fd);
 }
 
 void	error_extension(char *file)
@@ -36,43 +38,66 @@ void	error_extension(char *file)
 	len = ft_strlen(file);
 	if (len < 4 || ft_strncmp(file + len - 4, ".fdf", 4) != '\0')
 	{
-		ft_error("WRONG EXTENSION!", 0);
+		ft_error("WRONG FILE!", 0);
 		exit(1);
 	}
+}
+
+static int	is_retangular(char **map_row, int prev_row, int *fd)
+{
+	int	x;
+	
+	x = 0;
+	while (map_row[x] && (*map_row[x]) != '\n')
+		x++;
+	// ft_printf("prev: %d\n", prev_row);
+	// ft_printf("x: %d\n", x);
+	if (prev_row != -1 && prev_row != x)
+	{
+		close (*fd);
+		ft_error("MAP NOT RETANGULAR!", 0);
+		free_map(map_row);
+		exit (0);
+	}
+	if (prev_row != -1)
+		return prev_row;
+	return (x);
 }
 
 void	map_format(char *file)
 {
 	char	**map_row;
 	char	*line;
+	char	*temp;
 	int		fd;
 	int		prev_row;
-	int		x;
-	int		y;
 
-	fd = open(file, O_RDONLY);
-	if(fd_check(&fd, file))
-		exit (0);
-	y = 0;
+	fd = fd_check(file);
 	prev_row = -1;
-	while ((line = get_next_line(fd)))
+	line = get_next_line(fd);
+	while (line)
 	{
-		map_row = ft_split(line, ' ');
+		temp = line;
+		map_row = ft_split(temp, ' ');
+		free(temp);
 		if (!map_row)
 			return ;
-		free(line);
-		x = ft_strlen(map_row[x]);
-		if (prev_row != -1 && prev_row != x)
-		{
-			close (fd);
-			ft_error("MAP NOT RETANGULAR!", 0);
-			exit (0);
-		}
-		prev_row = x;
-		y++;
+		prev_row = is_retangular(map_row, prev_row, &fd);
+		line = get_next_line(fd);
+		free_map(map_row);
 	}
 	close (fd);
 }
 
-
-
+void	free_map(char **map)
+{
+	int	x;
+	
+	x = 0;
+	while (map[x])
+	{
+		free(map[x]);
+		x++;
+	}
+	free(map);
+}

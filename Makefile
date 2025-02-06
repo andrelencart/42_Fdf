@@ -6,13 +6,13 @@
 #    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:09:01 by andcarva          #+#    #+#              #
-#    Updated: 2025/02/04 18:29:44 by andcarva         ###   ########.fr        #
+#    Updated: 2025/02/06 16:57:10 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fdf
 CC=cc
-CFLAGS= -Wall -Wextra -Werror -g 
+CFLAGS= -Wall -Wextra -Werror -g
 OBJ_DIR=Obj
 SRC_DIR= Src
 LIBFT= Includes/Libft/libft.a
@@ -50,5 +50,8 @@ fclean: clean
 	@rm -rf $(LIBFT)
 	
 re: fclean all
+
+r:
+	make && clear && ./fdf Maps/42.fdf
 
 .PHONY: all fclean clean re

@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/05 14:02:38 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:33:36 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ void	dda_alg(t_map *map, t_window *img)
 		x = 0;
 		while (x < map->with)
 		{
+			ft_printf("map->with: %d\n", map->with);
 			if(x != map->with - 1)
 				dda_steps(*(map->point), img, (t_point){{0}, x, y, WHITE}, (t_point){{0}, x + 1, y, WHITE});
 			if(y != map->hait - 1)
 				dda_steps(*(map->point), img, (t_point){{0}, x, y, WHITE}, (t_point){{0}, x, y + 1, WHITE});
-			// ft_printf("x: %d y: %d z: %d dx: %d dy: %d\n", x, y, (int)map->point.cord[y][x], (int)map->point.dx, (int)map->point.dy);
+			// ft_printf("x: %d y: %d z: %d dx: %d dy: %d\n", x, y, (int)map->point[y][x].cord[Z], (int)map->point[y][x].dx, (int)map->point[y][x].dy);
 			x += 1;
 		}
 		map->point[y][x].cord[Z] = 0;
@@ -44,8 +45,9 @@ void	dda_steps(t_point *point, t_window *img, t_point cord1, t_point cord2)
 	float	yin;
 	int		i;
 
- (*point).dx = cord2.dx - cord1.dx;
- (*point).dy = cord2.dy - cord1.dy;
+	ft_printf("AAAAA\n");
+	(*point).dx = cord2.dx - cord1.dx;
+	(*point).dy = cord2.dy - cord1.dy;
 	// printf("cord1.x %d cord1.y %d cord2.x %d cord2.y %d\n", (int)cord1.dx, (int)cord1.dy, (int)cord2.dx, (int)cord2.dy);
 	if (fabs_v((*point).dx) >= fabs_v((*point).dy))
 		step = fabs_v((*point).dx);
