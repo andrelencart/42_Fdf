@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/06 19:25:34 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:00:25 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include <string.h>
 # include <stdint.h>
 # include <errno.h>
-#include <stdbool.h>
+# include <stdbool.h>
+# include <math.h>
 # include "../Includes/Libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
@@ -80,6 +81,8 @@ typedef struct s_fdf
 // INIT_FUNC
 void	window_init(t_window *wind);
 void	map_init(t_map *map, char *file);
+// void	point_init(t_map *map, int with, int hait);
+void	line_memory(t_point **points, int width, int height);
 
 // PARCER_FUNC
 void	map_info(t_map *map, char *file);
@@ -96,10 +99,10 @@ void	hook_control(t_window *wind);
 int		key_press(int key_code, t_window *wind);
 
 // DRAW_MAP
-void	put_line(t_window *wind);
-void	draw_map(t_map *map);
 void	dda_alg(t_map *map, t_window *img);
-void	dda_steps(t_point *point, t_window *img,t_point cord1, t_point cord2);
+void	dda_steps(t_map *map, t_window *img,t_point cord1, t_point cord2);
+// void	put_line(t_window *wind);
+// void	draw_map(t_map *map);
 
 // UTILS
 void		my_mlx_pixel_put(t_window *img, int x, int y, int color);

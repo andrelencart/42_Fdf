@@ -6,14 +6,14 @@
 #    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:09:01 by andcarva          #+#    #+#              #
-#    Updated: 2025/02/06 16:57:10 by andcarva         ###   ########.fr        #
+#    Updated: 2025/02/10 19:03:35 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fdf
 CC=cc
 CFLAGS= -Wall -Wextra -Werror -g
-OBJ_DIR=Obj
+OBJ_DIR=Obj_Fdf
 SRC_DIR= Src
 LIBFT= Includes/Libft/libft.a
 MLX= minilibx-linux/libmlx.a
@@ -29,7 +29,7 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 	
 $(NAME): $(OBJ) $(LIBFT) $(MLX)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) -lXext -lX11 -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(MLX) -lm -lz -lXext -lX11 -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -c $< -o $@
