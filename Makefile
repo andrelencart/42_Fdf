@@ -6,19 +6,20 @@
 #    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:09:01 by andcarva          #+#    #+#              #
-#    Updated: 2025/02/10 19:03:35 by andcarva         ###   ########.fr        #
+#    Updated: 2025/02/11 18:18:18 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fdf
 CC=cc
 CFLAGS= -Wall -Wextra -Werror -g
-OBJ_DIR=Obj_Fdf
+OBJ_DIR= Obj_Fdf
 SRC_DIR= Src
 LIBFT= Includes/Libft/libft.a
 MLX= minilibx-linux/libmlx.a
 
-SRC_FILES= fdf.c init.c drawmap.c fdf_utils.c hooks.c parser_utils.c map_func.c
+SRC_FILES= fdf.c init.c drawmap.c fdf_utils.c hooks.c parser_utils.c map_func.c \
+			projections.c
 
 OBJ= $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 SRC= $(addprefix $(SRC_DIR)/, $(SRC_FILES))

@@ -6,12 +6,17 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/10 19:16:35 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:11:58 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
+void	draw_map(t_map *map, t_window *img)
+{
+	dda_alg(map, img);
+	// rotation
+}
 void	dda_alg(t_map *map, t_window *img)
 {
 	int	y;
