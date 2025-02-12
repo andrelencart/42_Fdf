@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:23:35 by andre             #+#    #+#             */
-/*   Updated: 2025/02/06 19:27:32 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:34:29 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,50 +43,19 @@ void	error_extension(char *file)
 	}
 }
 
-static int	is_retangular(char **map_row, int prev_row, int *fd)
+bool	is_valid_number(char *str)
 {
-	int	x;
-	
-	x = 0;
-	while (map_row[x] && (*map_row[x]) != '\n')
-		x++;
-	// ft_printf("prev: %d\n", prev_row);
-	// ft_printf("x: %d\n", x);
-	if (prev_row != -1 && prev_row != x)
+	if (!str)
+		return (false);
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str && *str != ' ' && *str != '\t' && *str != '\n')
 	{
-		close (*fd);
-		ft_error("MAP NOT RETANGULAR!", 0);
-		free_map(map_row);
-		exit (0);
+		if (!ft_isdigit(*str))
+			return (false);
+		str++;
 	}
-	if (prev_row != -1)
-		return prev_row;
-	return (x);
-}
-
-void	map_format(char *file)
-{
-	char	**map_row;
-	char	*line;
-	char	*temp;
-	int		fd;
-	int		prev_row;
-
-	fd = fd_check(file);
-	prev_row = -1;
-	line = get_next_line(fd);
-	while (line)
-	{
-		temp = line;
-		map_row = ft_split(temp, ' ');
-		free(temp);
-		if (!map_row)
-			return ;
-		prev_row = is_retangular(map_row, prev_row, &fd);
-		line = get_next_line(fd);
-		free_map(map_row);
-	}
-	close (fd);
+	return (true);
 }
 
 void	free_map(char **map)

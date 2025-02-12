@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/11 18:20:58 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:32:12 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@
 # define X 0
 # define Y 1
 # define Z 2
+
+// ERRORS
+# define ERROR_ARGS "TO MANY ARGUMENTS"
+# define ERROR_INIT "NOT INICIALIZED"
+# define ERROR_MAP "MAP EMPTY"
+# define ERROR_CHAR "INVALID CHARACTER IN MAP"
+# define ERROR_FORMAT "MAP NOT RETANGULAR"
+
 
 typedef	struct s_window
 {
@@ -83,12 +91,13 @@ void	window_init(t_window *wind);
 void	map_init(t_map *map, char *file);
 void	line_memory(t_point **points, int width, int height);
 
-// PARCER_FUNC
+// PARCER_FUNC && UTILS
 void	map_info(t_map *map, char *file);
 void	map_matriz(t_map *map, char *file);
 void	parser(t_map *map, char *file);
 void	map_format(char *file);
 void	error_extension(char *file);
+bool	is_valid_number(char *str);
 
 // CLOSE_FUNC
 int		window_close(t_window *wind);

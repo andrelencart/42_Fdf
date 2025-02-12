@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/11 18:11:58 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:51:10 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	draw_map(t_map *map, t_window *img)
 {
 	dda_alg(map, img);
-	// rotation
+	// rotation                  
 }
 void	dda_alg(t_map *map, t_window *img)
 {
@@ -62,7 +62,7 @@ void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 	cord1.dx = map->orig_cord[X] + (cord1.cord[X] * map->scale);
 	cord1.dy = map->orig_cord[Y] + (cord1.cord[Y] * map->scale);
 	printf("steps %f\n", step);
-	while (step > 0)
+	while (step >= 0)
 	{
 		printf("x -> %d, y-> %d\n", (int)cord1.dx, (int)cord1.dy);
 		my_mlx_pixel_put(img, (int)cord1.dx, (int)cord1.dy, WHITE);

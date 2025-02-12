@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/11 18:17:43 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:28:21 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	map_init(t_map *map, char *file)
 	map->ang[X] = 30;
 	map->ang[Y] = 330;
 	map->ang[Z] = 45;
-	map->scale = 50;
+	map->scale = 40;
 	map_info(map, file);
 	map_matriz(map, file);
 }
@@ -44,29 +44,6 @@ void	parser(t_map *map, char *file)
 	map_init(map, file);
 }
 
-// void	point_init(t_map *map, int with, int hait)
-// {
-// 	int	y;
-// 	int	x;
-
-// 	y = 0;
-// 	printf("Width -> %d, Height -> %d\n", with, hait);
-// 	while (y < hait)
-// 	{
-// 		x = 0;
-// 		while (x < with)
-// 		{	
-// 			map->point[y][x].cord[X] = 0;
-// 			map->point[y][x].cord[Y] = 0;
-// 			map->point[y][x].cord[Z] = 0;
-// 			map->point[y][x].dx = 0;
-// 			map->point[y][x].dy = 0;
-// 			map->point[y][x].color = WHITE;
-// 			x++;
-// 		}
-// 		y++;
-// 	}
-// }
 
 void	line_memory(t_point **points, int with, int hait)
 {
@@ -77,7 +54,7 @@ void	line_memory(t_point **points, int with, int hait)
 	{		
 		points[y] = malloc(sizeof(t_point) * (with));
 		if (!points[y])
-			ft_error("Cord not initialized!", 0);
+			ft_error(ERROR_ARGS, 0);
 		y++;
 	}
 }
