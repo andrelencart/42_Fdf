@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/12 17:32:12 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:40:32 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ typedef struct s_map
 {
 	char 	**mtz;
 	int		ang[3];
+	float	rot_x[3][3];
+	float	rot_y[3][3];
+	float	rot_z[3][3];
 	int		z_max;
 	int		z_min;
 	int		scale;
@@ -85,6 +88,7 @@ typedef struct s_fdf
 	t_window	window;
 	t_map		map;
 }				t_fdf;
+
 
 // INIT_FUNC
 void	window_init(t_window *wind);
@@ -115,15 +119,21 @@ void	draw_map(t_map *map, t_window *img);
 void	top_view(t_map *map);
 void	isometric(t_map *map);
 
+// ROTATIONS
+void	rotation_x(t_map *map);
+void	rotation_y(t_map *map);
+void	rotation_z(t_map *map);
+void	rotmul(float rot1[3][3], float rot2[3][3], float result[3][3]);
+
 // UTILS
-void		my_mlx_pixel_put(t_window *img, int x, int y, int color);
-int			testkey(int key_code, t_window *wind);
-int			key_press(int key_code, t_window *wind);
-float		fabs_v(float n);
-void		free_cord(t_map *map);
-void		ft_error(char *error_msg, int sys_func);
-int			fd_check(char *file);
-void		free_map(char **map);
+void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
+int		testkey(int key_code, t_window *wind);
+int		key_press(int key_code, t_window *wind);
+float	fabs_v(float n);
+void	free_cord(t_map *map);
+void	ft_error(char *error_msg, int sys_func);
+int		fd_check(char *file);
+void	free_map(char **map);
 
 
 #endif // FDF_H
