@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 15:01:55 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/13 15:37:19 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:58:59 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,21 @@ void	rotmul(float rot1[3][3], float rot2[3][3], float result[3][3])
 	}
 }
 
+t_point	matxmul(float mat[3][3], t_point point)
+{
+	int i;
+	int	j;
+	t_point tmp;
+
+	i = -1;
+	while (++i < 3)
+	{
+		j = -1;
+		tmp.cord[i] = 0;
+		while (++j < 3)
+		{
+			tmp.cord[i] += point.cord[j] * mat[i][j];
+		}
+	}
+	return (tmp);
+}
