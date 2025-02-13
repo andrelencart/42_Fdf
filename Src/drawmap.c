@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/13 18:06:24 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:46:32 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void	draw_map(t_map *map, t_window *img)
 {
-	// rotate(map);
+	rotation_x(map);
+	rotation_y(map);
+	rotation_z(map);
 	dda_alg(map, img);
+	mlx_put_image_to_window(img->mlx, img->mlx_window, img->img, 0, 0);
+	free_cord(map);          
 }
 void	dda_alg(t_map *map, t_window *img)
 {
@@ -34,12 +38,9 @@ void	dda_alg(t_map *map, t_window *img)
 				dda_steps(map, img, map->point[y][x], map->point[y + 1][x]);
 			//printf("x: %f y: %f z: %f dx: %f dy: %f\n\n", x, y, (int)map->point[y][x].cord[Z], (int)map->point[y][x].dx, (int)map->point[y][x].dy);
 			x += 1;
-		
 		}
 		y += 1;
 	}
-	mlx_put_image_to_window(img->mlx, img->mlx_window, img->img, 0, 0);
-	free_cord(map);
 }
 
 void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
@@ -66,3 +67,18 @@ void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 		step--;
 	}
 }
+
+// void	draw_pixel(t_window *wind)
+// {
+// 	int	y;
+// 	int	j;
+
+// 	y = 0;
+// 	j = 400;
+// 	while (y < j)
+// 	{
+// 		my_mlx_pixel_put(wind, 300, y, 0x00FFFFFF);
+// 		y++;
+// 	}
+// 	mlx_put_image_to_window(wind->mlx, wind->mlx_window, wind->img, 0, 0);
+// }

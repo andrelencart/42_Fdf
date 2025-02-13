@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/13 17:53:53 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:33:42 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,6 @@ typedef struct s_map
 {
 	char 	**mtz;
 	int		ang[3];
-	float	rot_x[3][3];
-	float	rot_y[3][3];
-	float	rot_z[3][3];
 	int		z_max;
 	int		z_min;
 	int		scale;
@@ -123,8 +120,6 @@ void	isometric(t_map *map);
 void	rotation_x(t_map *map);
 void	rotation_y(t_map *map);
 void	rotation_z(t_map *map);
-void	rotate(t_map *map);
-void	rotmul(float rot1[3][3], float rot2[3][3], float result[3][3]);
 t_point	matxmul(float mat[3][3], t_point point);
 
 // UTILS
