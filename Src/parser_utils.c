@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:23:35 by andre             #+#    #+#             */
-/*   Updated: 2025/02/12 15:34:29 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:03:15 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,23 @@ void	free_map(char **map)
 		x++;
 	}
 	free(map);
+}
+
+void	last_space(char *line, t_map *map)
+{
+	char	*temp;
+	int		i;
+	
+	temp = line;
+	i = -1;
+	while (temp[++i])
+	{
+		if ((temp[i + 1] == ' ' || temp[i + 1] == '\t') && !ft_isdigit(temp[i + 2]))
+		{
+			ft_error(ERROR_SPACE, 0);
+			free(temp);
+			free_cord(map);
+			exit(0);
+		}
+	}
 }

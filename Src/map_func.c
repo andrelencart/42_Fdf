@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/12 17:32:05 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/17 15:59:19 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ static void	map_cord_put(char *line, int y, t_map *map)
 		map->point[y][x].cord[X] = (x + 0.5 - (map->with / 2));
 		map->point[y][x].cord[Y] = (y + 0.5 - (map->hait / 2));
 		map->point[y][x].cord[Z] = ft_atoi(temp);
-		// printf("cord1.x %f cord1.y %f cord1.z %f\n", map->point[y][x].cord[X], map->point[y][x].cord[Y], map->point[y][x].cord[Z]);
-		// ft_printf("y: %d, x: %d, z: %d\n", y, x, (int)point[y][x].cord[Z]);
 		while (*temp && (*temp == '-' || *temp == '+' || ft_isdigit(*temp)))
 			temp++;
 		x++;
@@ -75,19 +73,17 @@ void	map_matriz(t_map *map, char *file)
 
 	y = 0;
 	fd = fd_check(file);
-	// printf("Width -> %d, Height -> %d\n", map->with, map->hait);
 	map->point = malloc(sizeof(t_point *) * (map->hait));
 	if (!map->point)
 		ft_error(ERROR_INIT, 0);
 	line_memory(map->point, map->with, map->hait);
-	//printf("1 - cord1.x %f cord1.y %f cord1.z %f\n", map->point[0][0].cord[X], map->point[0][0].cord[Y], map->point[0][0].cord[Z]);
 	while (y < map->hait)
 	{
 		line = get_next_line(fd);
 		temp = line;
+		last_space(temp, map);
 		map_cord_put(temp, y, map);
 		free(line);
-		// printf("cord1.x %f cord1.y %f cord2.x %f cord2.y %f\n", map->point[y][0].cord[X], map->point[y][0].cord[Y], map->point[y][1].cord[X], map->point[y][1].cord[Y]);
 		y++;
 	}
 	close (fd);

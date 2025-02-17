@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/13 18:33:42 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/17 15:56:02 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define ERROR_ARGS "TO MANY ARGUMENTS"
 # define ERROR_INIT "NOT INICIALIZED"
 # define ERROR_MAP "MAP EMPTY"
+# define ERROR_SPACE "TO MANY SAPCES"
 # define ERROR_CHAR "INVALID CHARACTER IN MAP"
 # define ERROR_FORMAT "MAP NOT RETANGULAR"
 
@@ -99,6 +100,7 @@ void	parser(t_map *map, char *file);
 void	map_format(char *file);
 void	error_extension(char *file);
 bool	is_valid_number(char *str);
+void	last_space(char *line, t_map *map);
 
 // CLOSE_FUNC
 int		window_close(t_window *wind);

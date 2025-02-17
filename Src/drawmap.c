@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/13 18:46:32 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/17 14:33:59 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 	map->point[Y][X].dx = (cord2.cord[X] * map->scale) - (cord1.cord[X] * map->scale);
 	map->point[Y][X].dy = (cord2.cord[Y] * map->scale) - (cord1.cord[Y] * map->scale);
 	step = sqrt(pow(map->point[Y][X].dx , 2) + pow(map->point[Y][X].dy, 2));
-	printf("dx: %f dy: %f\n", map->point[Y][X].dx, map->point[Y][X].dy);
+	// printf("dx: %f dy: %f\n", map->point[Y][X].dx, map->point[Y][X].dy);
 	xin = map->point[Y][X].dx / step;
 	yin = map->point[Y][X].dy / step;
 	cord1.dx = map->orig_cord[X] + (cord1.cord[X] * map->scale);
 	cord1.dy = map->orig_cord[Y] + (cord1.cord[Y] * map->scale);
-	printf("steps %f\n", step);
+	// printf("steps %f\n", step);
 	while (step >= 0)
 	{
-		printf("x -> %d, y-> %d\n", (int)cord1.dx, (int)cord1.dy);
+		// printf("x -> %d, y-> %d\n", (int)cord1.dx, (int)cord1.dy);
 		my_mlx_pixel_put(img, (int)cord1.dx, (int)cord1.dy, WHITE);
 		cord1.dx += xin;
 		cord1.dy += yin;
