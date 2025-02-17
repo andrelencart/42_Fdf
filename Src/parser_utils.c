@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:23:35 by andre             #+#    #+#             */
-/*   Updated: 2025/02/17 16:03:15 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:47:53 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,21 @@ void	last_space(char *line, t_map *map)
 	int		i;
 	
 	temp = line;
-	i = -1;
-	while (temp[++i])
+	i = 0;
+	while (temp[i] && temp[i] != '\n')
 	{
-		if ((temp[i + 1] == ' ' || temp[i + 1] == '\t') && !ft_isdigit(temp[i + 2]))
+		while (temp[i] == ' ' || temp[i] == '\t')
+			i++;
+		if ((!ft_isdigit(temp[i])
+		 && temp[i] != '-' && temp[i] != '+'))
 		{
 			ft_error(ERROR_SPACE, 0);
 			free(temp);
 			free_cord(map);
 			exit(0);
 		}
+		i++;
+		while (ft_isdigit(temp[i]))
+			i++;
 	}
 }
