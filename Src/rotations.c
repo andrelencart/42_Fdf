@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:21:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/17 19:23:50 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:57:19 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	rotation_x(t_map *map)
 	int		x;
 	
 	// printf("ROTATION X\n");
-	radian_x = map->ang[X] * (M_PI / 180);
+	radian_x = map->ang[X] * (PI / 180);
 	rot_x[0][0] = 1;
 	rot_x[0][1] = 0;
 	rot_x[0][2] = 0;
@@ -49,7 +49,7 @@ void	rotation_y(t_map *map)
 	int		x;
 	
 	// printf("ROTATION Y\n");
-	radian_y = map->ang[Y] * (M_PI / 180);
+	radian_y = map->ang[Y] * (PI / 180);
 	rot_y[0][0] = cos(radian_y);
 	rot_y[0][1] = 0;
 	rot_y[0][2] = sin(radian_y);
@@ -78,7 +78,7 @@ void	rotation_z(t_map *map)
 	int		x;
 	
 	// printf("ROTATION Z\n");
-	radian_z = map->ang[Z] * (M_PI / 180);
+	radian_z = map->ang[Z] * (PI / 180);
 	rot_z[0][0] = cos(radian_z);
 	rot_z[0][1] = -sin(radian_z);
 	rot_z[0][2] = 0;

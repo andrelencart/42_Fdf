@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/18 14:46:36 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:36:27 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	window_init(t_window *wind)
 
 void	map_init(t_map *map, char *file)
 {
+	float	scalex;
+	float	scaley;
+	
 	map_format(file);
 	map->hait = 0;
 	map->with = 0;
@@ -33,8 +36,13 @@ void	map_init(t_map *map, char *file)
 	map->ang[X] = 30;
 	map->ang[Y] = 330;
 	map->ang[Z] = 45;
-	map->scale = 15;
 	map_info(map, file);
+	scalex = (float)WIDTH / (map->with + 1);
+	scaley = (float)HEIGHT / (map->hait + 1);
+	if (scalex < scaley)
+		map->scale = scalex;
+	else
+		map->scale = scaley;
 	map_matriz(map, file);
 }
 

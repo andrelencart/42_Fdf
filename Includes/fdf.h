@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/18 14:37:56 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:27:57 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,28 @@
 # include "../minilibx-linux/mlx.h"
 
 // MAP_DEF
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 600
+# define HEIGHT 300
+
+// PROJECTION_KEYS
+# define ISOMETRIC 0
+# define FRONT_VIEW 1
+# define SIDE_VIEW 2
+# define TOP_VIEW 3
+
+// MATH
+# define PI 3.14159265358979323846
 
 // KEY_DEF
 # define ESC 65307
+# define KBAR 65363
+# define KBAL 65361
+# define KBAU 65362
+# define KBAD 65364
+# define KB1 49
+# define KB2 50
+# define KB3 51
+# define KB4 52
 
 // COLOR_DEF
 # define WHITE 0x00FFFFFF
@@ -107,8 +124,9 @@ void	last_space(char *line, t_map *map);
 int		window_close(t_window *wind);
 
 // KEYBOARD
-void	hook_control(t_window *wind);
+void	hook_control(t_window *wind, t_map *map);
 int		key_press(int key_code, t_window *wind);
+int		key_projection_change(int key_code, t_map *map);
 
 // DRAW_MAP
 void	dda_alg(t_map *map, t_window *img);
@@ -116,8 +134,11 @@ void	dda_steps(t_map *map, t_window *img,t_point cord1, t_point cord2);
 void	draw_map(t_map *map, t_window *img);
 
 // PROJECTIONS
-void	top_view(t_map *map);
+void	top_v(t_map *map);
 void	isometric(t_map *map);
+void	side_v(t_map *map);
+void	front_v(t_map *map);
+void	projection_choice(t_map *map, int proj);
 
 // ROTATIONS
 void	rotation_x(t_map *map);
