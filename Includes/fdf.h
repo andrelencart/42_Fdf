@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/18 17:27:57 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:15:32 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # include "../minilibx-linux/mlx.h"
 
 // MAP_DEF
-# define WIDTH 600
-# define HEIGHT 300
+# define WIDTH 1920
+# define HEIGHT 1080
 
 // PROJECTION_KEYS
 # define ISOMETRIC 0
@@ -96,6 +96,7 @@ typedef struct s_map
 	int		orig_cord[3];
 	int		hait;
 	int		with;
+	char	*file;
 	t_point	**point;
 }			t_map;
 
@@ -110,6 +111,7 @@ typedef struct s_fdf
 void	window_init(t_window *wind);
 void	map_init(t_map *map, char *file);
 void	line_memory(t_point **points, int width, int height);
+int		draw_img(t_fdf *fdf);
 
 // PARCER_FUNC && UTILS
 void	map_info(t_map *map, char *file);
@@ -124,9 +126,9 @@ void	last_space(char *line, t_map *map);
 int		window_close(t_window *wind);
 
 // KEYBOARD
-void	hook_control(t_window *wind, t_map *map);
-int		key_press(int key_code, t_window *wind);
-int		key_projection_change(int key_code, t_map *map);
+void	hook_control(t_fdf *fdf);
+int		key_press(int key_code, t_fdf *fdf);
+int		key_projection_change(int key_code, t_fdf *fdf);
 
 // DRAW_MAP
 void	dda_alg(t_map *map, t_window *img);
@@ -149,7 +151,6 @@ t_point	matxmul(float mat[3][3], t_point point);
 // UTILS
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
 int		testkey(int key_code, t_window *wind);
-int		key_press(int key_code, t_window *wind);
 float	fabs_v(float n);
 void	free_cord(t_map *map);
 void	ft_error(char *error_msg, int sys_func);
