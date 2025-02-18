@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/18 19:55:40 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/18 21:14:38 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	draw_map(t_map *map, t_window *img)
 	rotation_z(map);
 	dda_alg(map, img);
 	mlx_put_image_to_window(img->mlx, img->mlx_window, img->img, 0, 0);
-	free_cord(map);
+	// free_cord(map);
 }
 void	dda_alg(t_map *map, t_window *img)
 {
