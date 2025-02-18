@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/17 19:05:49 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:46:36 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	map_init(t_map *map, char *file)
 	map->ang[X] = 30;
 	map->ang[Y] = 330;
 	map->ang[Z] = 45;
-	map->scale = 20;
+	map->scale = 15;
 	map_info(map, file);
 	map_matriz(map, file);
 }

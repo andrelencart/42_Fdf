@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/17 14:33:59 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:45:08 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 	// printf("steps %f\n", step);
 	while (step >= 0)
 	{
-		// printf("x -> %d, y-> %d\n", (int)cord1.dx, (int)cord1.dy);
-		my_mlx_pixel_put(img, (int)cord1.dx, (int)cord1.dy, WHITE);
+		if ((int)cord1.dx < WIDTH && (int)cord1.dx > 0 && \
+			((int)cord1.dy < HEIGHT && (int)cord1.dy > 0))
+			my_mlx_pixel_put(img, (int)cord1.dx, (int)cord1.dy, WHITE);
 		cord1.dx += xin;
 		cord1.dy += yin;
 		step--;

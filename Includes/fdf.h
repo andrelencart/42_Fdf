@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/17 15:56:02 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:37:56 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 // ERRORS
 # define ERROR_ARGS "TO MANY ARGUMENTS"
 # define ERROR_INIT "NOT INICIALIZED"
+# define ERROR_MAP_LEN "MAP TO BIG"
 # define ERROR_MAP "MAP EMPTY"
 # define ERROR_SPACE "TO MANY SAPCES"
 # define ERROR_CHAR "INVALID CHARACTER IN MAP"
