@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/18 20:15:32 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:34:21 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 
 // COLOR_DEF
 # define WHITE 0x00FFFFFF
+# define BLACK 0x000000 
 
 // CORD_DEF
 # define X 0
@@ -112,6 +113,7 @@ void	window_init(t_window *wind);
 void	map_init(t_map *map, char *file);
 void	line_memory(t_point **points, int width, int height);
 int		draw_img(t_fdf *fdf);
+// void	restart_map(t_map *map);
 
 // PARCER_FUNC && UTILS
 void	map_info(t_map *map, char *file);
@@ -123,7 +125,7 @@ bool	is_valid_number(char *str);
 void	last_space(char *line, t_map *map);
 
 // CLOSE_FUNC
-int		window_close(t_window *wind);
+int	window_close(t_window *wind, t_map *map);
 
 // KEYBOARD
 void	hook_control(t_fdf *fdf);

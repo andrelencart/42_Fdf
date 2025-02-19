@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:43:01 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/18 19:01:31 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:48:59 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	front_v(t_map *map)
 
 void	projection_choice(t_map *map, int proj)
 {
+	// map_init(map, map->file);
 	if (proj == ISOMETRIC)
 		isometric(map);
 	else if (proj == TOP_VIEW)
@@ -54,4 +55,7 @@ void	projection_choice(t_map *map, int proj)
 		side_v(map);
 	else if (proj == FRONT_VIEW)
 		front_v(map);
+	// rotation_x(map);
+	// rotation_y(map);
+	// rotation_z(map); 
 }
