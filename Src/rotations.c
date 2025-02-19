@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotations.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:21:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/18 18:59:47 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/19 20:19:44 by andre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,18 +101,18 @@ void	rotation_z(t_map *map)
 
 t_point	matxmul(float mat[3][3], t_point point)
 {
-	int i;
-	int	j;
+	int y;
+	int	x;
 	t_point tmp;
 
-	i = -1;
-	while (++i < 3)
+	y = -1;
+	while (++y < 3)
 	{
-		j = -1;
-		tmp.cord[i] = 0;
-		while (++j < 3)
+		x = -1;
+		tmp.cord[y] = 0;
+		while (++x < 3)
 		{
-			tmp.cord[i] += point.cord[j] * mat[i][j];
+			tmp.cord[y] += point.cord[x] * mat[y][x];
 		}
 	}
 	return (tmp);
