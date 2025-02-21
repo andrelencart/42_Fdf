@@ -6,7 +6,7 @@
 #    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:09:01 by andcarva          #+#    #+#              #
-#    Updated: 2025/02/18 19:12:36 by andcarva         ###   ########.fr        #
+#    Updated: 2025/02/21 17:11:36 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ SRC_DIR= Src
 LIBFT= Includes/Libft/libft.a
 MLX= minilibx-linux/libmlx.a
 
-SRC_FILES= fdf.c init.c drawmap.c fdf_utils.c hooks.c parser_utils.c map_func.c \
-			projections.c rotations.c
+SRC_FILES= fdf.c init_destroy.c drawmap.c fdf_utils.c hooks.c parser_utils.c  \
+			map_func.c projections.c matriz_rot.c rot_trans.c
 
 OBJ= $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
 SRC= $(addprefix $(SRC_DIR)/, $(SRC_FILES))

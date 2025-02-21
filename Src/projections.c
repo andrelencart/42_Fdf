@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   projections.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 17:43:01 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/19 20:48:36 by andre            ###   ########.fr       */
+/*   Updated: 2025/02/21 17:48:36 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	front_v(t_map *map)
 
 void	projection_choice(t_map *map, int proj)
 {
-	// map_init(map, map->file);
+	// restart_map(map);
 	if (proj == ISOMETRIC)
 		isometric(map);
 	else if (proj == TOP_VIEW)

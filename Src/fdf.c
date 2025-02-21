@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:31:39 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/19 20:44:10 by andre            ###   ########.fr       */
+/*   Updated: 2025/02/21 17:48:42 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int ac, char **av)
 		ft_error(ERROR_ARGS, 0);
 }
 
-// Draw_black function to optimize;
 int	draw_img(t_fdf *fdf)
 {
 	int	x;
@@ -48,16 +47,24 @@ int	draw_img(t_fdf *fdf)
 		}
 		y++;
 	}
-	map_init(&fdf->map, fdf->map.file);
+	// map_init(&fdf->map, fdf->map.file);
+	restart_map(&fdf->map);
 	draw_map(&fdf->map, &fdf->window);
 	return (0);
+}
+
+void	parser(t_map *map, char *file)
+{
+	error_extension(file);
+	map_init(map, file);
+	isometric(map);
 }
 
 // int	draw_img(t_fdf *fdf)
 // {
 // 	mlx_destroy_image(fdf->window.mlx, fdf->window.img);
 // 	fdf->window.img = mlx_new_image(fdf->window.mlx, WIDTH, HEIGHT);
-// 	fdf->window.addr = mlx_get_data_addr(fdf->window.img, &fdf->window.bitpp,
+// 	fdf->window.addr = mlx_get_data_addr(fdf->window.img, &fdf->window.bitpp, \
 // 		&fdf->window.line_length, &fdf->window.endian);
 // 	// restart_map(&fdf->map);
 // 	map_init(&fdf->map, fdf->map.file);

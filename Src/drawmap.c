@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawmap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andre <andre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/19 20:37:54 by andre            ###   ########.fr       */
+/*   Updated: 2025/02/19 18:26:35 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,30 @@ void	dda_alg(t_map *map, t_window *img)
 		y += 1;
 	}
 }
-// norm is equal to hipotnusa
+
 void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 {
-	float	norm;
+	float	step;
 	float	xin;
 	float	yin;
 	
 	map->point[Y][X].dx = (cord2.cord[X] * map->scale) - (cord1.cord[X] * map->scale);
 	map->point[Y][X].dy = (cord2.cord[Y] * map->scale) - (cord1.cord[Y] * map->scale);
-	norm = sqrt(pow(map->point[Y][X].dx , 2) + pow(map->point[Y][X].dy, 2));
-	xin = map->point[Y][X].dx / norm;
-	yin = map->point[Y][X].dy / norm;
+	step = sqrt(pow(map->point[Y][X].dx , 2) + pow(map->point[Y][X].dy, 2));
+	// printf("dx: %f dy: %f\n", map->point[Y][X].dx, map->point[Y][X].dy);
+	xin = map->point[Y][X].dx / step;
+	yin = map->point[Y][X].dy / step;
 	cord1.dx = map->orig_cord[X] + (cord1.cord[X] * map->scale);
 	cord1.dy = map->orig_cord[Y] + (cord1.cord[Y] * map->scale);
-	while (norm >= 0)
+	// printf("steps %f\n", step);
+	while (step >= 0)
 	{
 		if ((int)cord1.dx < WIDTH && (int)cord1.dx > 0 && \
 			((int)cord1.dy < HEIGHT && (int)cord1.dy > 0))
 			my_mlx_pixel_put(img, (int)cord1.dx, (int)cord1.dy, WHITE);
 		cord1.dx += xin;
 		cord1.dy += yin;
-		norm--;
+		step--;
 	}
 }
 

@@ -6,12 +6,13 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/19 18:34:21 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:45:49 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
+
 
 # include <stdio.h>
 # include <unistd.h>
@@ -24,6 +25,7 @@
 # include <math.h>
 # include "../Includes/Libft/libft.h"
 # include "../minilibx-linux/mlx.h"
+
 
 // MAP_DEF
 # define WIDTH 1920
@@ -48,6 +50,14 @@
 # define KB2 50
 # define KB3 51
 # define KB4 52
+# define LA 65361
+# define UP 65362
+# define RA 65363
+# define DOWN 65364
+# define W 119
+# define A 97
+# define S 115
+# define D 100
 
 // COLOR_DEF
 # define WHITE 0x00FFFFFF
@@ -91,8 +101,6 @@ typedef struct s_map
 {
 	char 	**mtz;
 	int		ang[3];
-	int		z_max;
-	int		z_min;
 	int		scale;
 	int		orig_cord[3];
 	int		hait;
@@ -113,7 +121,7 @@ void	window_init(t_window *wind);
 void	map_init(t_map *map, char *file);
 void	line_memory(t_point **points, int width, int height);
 int		draw_img(t_fdf *fdf);
-// void	restart_map(t_map *map);
+void	restart_map(t_map *map);
 
 // PARCER_FUNC && UTILS
 void	map_info(t_map *map, char *file);
@@ -125,12 +133,12 @@ bool	is_valid_number(char *str);
 void	last_space(char *line, t_map *map);
 
 // CLOSE_FUNC
-int	window_close(t_window *wind, t_map *map);
+int		window_close(t_window *wind, t_map *map);
 
 // KEYBOARD
 void	hook_control(t_fdf *fdf);
-int		key_press(int key_code, t_fdf *fdf);
 int		key_projection_change(int key_code, t_fdf *fdf);
+int		key_press(int key_code, t_fdf *fdf);
 
 // DRAW_MAP
 void	dda_alg(t_map *map, t_window *img);
@@ -144,11 +152,12 @@ void	side_v(t_map *map);
 void	front_v(t_map *map);
 void	projection_choice(t_map *map, int proj);
 
-// ROTATIONS
+// ROTATIONS && TRANSLATIONS
 void	rotation_x(t_map *map);
 void	rotation_y(t_map *map);
 void	rotation_z(t_map *map);
 t_point	matxmul(float mat[3][3], t_point point);
+void	translation(int	key_code, t_fdf *fdf);
 
 // UTILS
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
