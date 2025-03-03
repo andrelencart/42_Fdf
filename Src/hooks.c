@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:07:33 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/03 17:11:41 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:23:18 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	hook_control(t_fdf *fdf)
 {
-	// mlx_key_hook(fdf->window.mlx_window, &testkey, fdf);
+	mlx_key_hook(fdf->window.mlx_window, &testkey, fdf);
+	// mlx_mouse_hook(fdf->window.mlx_window, &testkey, fdf);
 	mlx_hook(fdf->window.mlx_window, 17, 0, window_close, fdf);
 	mlx_hook(fdf->window.mlx_window, 2, 1L << 0, key_press, fdf);
-	mlx_hook(fdf->window.mlx_window, 4, 1L << 2, map_zoom, fdf);
+	mlx_mouse_hook(fdf->window.mlx_window, map_zoom, fdf);
 }
 
 int	key_press(int key_code, t_fdf *fdf)
@@ -46,7 +47,7 @@ int	key_projection_change(int key_code, t_fdf *fdf)
 	return (0);
 }
 
-int	map_zoom(t_fdf *fdf, int x, int y, int key_code)
+int	map_zoom(int key_code, int x, int y, t_fdf *fdf)
 {
 	printf("Zoom event triggered! key_code: %d, X: %d, Y: %d\n", key_code, x, y);
 	float prev_zoom;

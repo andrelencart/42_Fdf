@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/03 17:05:57 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:23:29 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,8 +142,7 @@ int		window_close(t_window *wind, t_map *map);
 void	hook_control(t_fdf *fdf);
 int		key_projection_change(int key_code, t_fdf *fdf);
 int		key_press(int key_code, t_fdf *fdf);
-int		map_zoom(t_fdf *fdf, int x, int y, int key_code);
-
+int	map_zoom(int key_code, int x, int y, t_fdf *fdf);
 // DRAW_MAP
 void	dda_alg(t_map *map, t_window *img);
 void	dda_steps(t_map *map, t_window *img,t_point cord1, t_point cord2);
