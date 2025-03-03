@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/21 17:37:58 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/03 16:09:21 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	map_init(t_map *map, char *file)
 	map->orig_cord[Z] = 0;
 	map_info(map, file);
 	map->scale = 25;
+	map->zoom = 1;
 	// scalex = (float)WIDTH / (map->with + 1);
 	// scaley = (float)HEIGHT / (map->hait + 1);
 	// // if (scalex < scaley)

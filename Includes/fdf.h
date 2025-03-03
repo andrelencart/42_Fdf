@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/21 17:45:49 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:05:57 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@
 # define A 97
 # define S 115
 # define D 100
+# define SRC_UP 4
+# define SRC_DOWN 5
 
 // COLOR_DEF
 # define WHITE 0x00FFFFFF
@@ -102,7 +104,8 @@ typedef struct s_map
 	char 	**mtz;
 	int		ang[3];
 	int		scale;
-	int		orig_cord[3];
+	float	zoom;
+	float	orig_cord[3];
 	int		hait;
 	int		with;
 	char	*file;
@@ -139,6 +142,7 @@ int		window_close(t_window *wind, t_map *map);
 void	hook_control(t_fdf *fdf);
 int		key_projection_change(int key_code, t_fdf *fdf);
 int		key_press(int key_code, t_fdf *fdf);
+int		map_zoom(t_fdf *fdf, int x, int y, int key_code);
 
 // DRAW_MAP
 void	dda_alg(t_map *map, t_window *img);

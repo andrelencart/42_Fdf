@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/19 18:26:35 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/03 16:10:30 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 	float	xin;
 	float	yin;
 	
-	map->point[Y][X].dx = (cord2.cord[X] * map->scale) - (cord1.cord[X] * map->scale);
-	map->point[Y][X].dy = (cord2.cord[Y] * map->scale) - (cord1.cord[Y] * map->scale);
+	map->point[Y][X].dx = (cord2.cord[X] * map->scale * map->zoom) \
+		 - (cord1.cord[X] * map->scale * map->zoom);
+	map->point[Y][X].dy = (cord2.cord[Y] * map->scale * map->zoom) \
+		- (cord1.cord[Y] * map->scale * map->zoom);
 	step = sqrt(pow(map->point[Y][X].dx , 2) + pow(map->point[Y][X].dy, 2));
 	// printf("dx: %f dy: %f\n", map->point[Y][X].dx, map->point[Y][X].dy);
 	xin = map->point[Y][X].dx / step;
