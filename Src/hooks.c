@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:07:33 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/03 17:23:18 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:08:29 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	map_zoom(int key_code, int x, int y, t_fdf *fdf)
 	float prev_zoom;
 
 	prev_zoom = fdf->map.zoom;
-	printf("Prev zoom: %f\n", prev_zoom);
 	if (key_code == SRC_UP)
 		fdf->map.zoom *= 1.2;
 	else if (key_code == SRC_DOWN && fdf->map.zoom > 0.2)
