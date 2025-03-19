@@ -35,7 +35,9 @@
 *.i*86
 *.x86_64
 *.hex
-
+Includes/.vscode/
+Includes/LICENSE
+Includes/README.md
 # Debug files
 *.dSYM/
 *.su

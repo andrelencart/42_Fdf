@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/03 16:09:21 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/18 14:30:07 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ void	window_init(t_window *wind)
 
 void	map_init(t_map *map, char *file)
 {
-	// float	scalex;
-	// float	scaley;
-	
 	map->file = file;
 	map_format(file);
 	map->hait = 0;
@@ -37,16 +34,10 @@ void	map_init(t_map *map, char *file)
 	map_info(map, file);
 	map->scale = 25;
 	map->zoom = 1;
-	// scalex = (float)WIDTH / (map->with + 1);
-	// scaley = (float)HEIGHT / (map->hait + 1);
-	// // if (scalex < scaley)
-	// 	map->scale = scalex;
-	// else
-	// 	map->scale = scaley;
 	map_matriz(map, file);
 }
 
-void restart_map(t_map *map)
+void	restart_map(t_map *map)
 {
 	map->hait = 0;
 	map->with = 0;
@@ -61,7 +52,7 @@ void	line_memory(t_point **points, int with, int hait)
 
 	y = 0;
 	while (y < hait)
-	{		
+	{
 		points[y] = malloc(sizeof(t_point) * (with));
 		if (!points[y])
 			ft_error(ERROR_ARGS, 0);
@@ -69,10 +60,8 @@ void	line_memory(t_point **points, int with, int hait)
 	}
 }
 
-int	window_close(t_window *wind, t_map *map)
+int	window_close(t_window *wind)
 {
-	(void)map;
-	// free_cord(map);
 	mlx_destroy_image(wind->mlx, wind->img);
 	mlx_destroy_window(wind->mlx, wind->mlx_window);
 	mlx_destroy_display(wind->mlx);

@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:31:39 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/03 18:02:50 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:22:22 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-
 		parser(&fdf.map, av[1]);
 		window_init(&fdf.window);
 		draw_map(&fdf.map, &fdf.window);
@@ -34,7 +33,7 @@ int	draw_img(t_fdf *fdf)
 {
 	int	x;
 	int	y;
-	
+
 	y = 0;
 	while (y < HEIGHT)
 	{
@@ -57,14 +56,3 @@ void	parser(t_map *map, char *file)
 	map_init(map, file);
 	isometric(map);
 }
-
-// int	draw_img(t_fdf *fdf)
-// {
-// 	mlx_destroy_image(fdf->window.mlx, fdf->window.img);
-// 	fdf->window.img = mlx_new_image(fdf->window.mlx, WIDTH, HEIGHT);
-// 	fdf->window.addr = mlx_get_data_addr(fdf->window.img, &fdf->window.bitpp, \
-// 		&fdf->window.line_length, &fdf->window.endian);
-// 	restart_map(&fdf->map);
-// 	draw_map(&fdf->map, &fdf->window);
-// 	return (0);
-// }

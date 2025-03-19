@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/03 16:35:54 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:34:05 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,16 @@ void	free_cord(t_map *map)
 	int	y;
 
 	y = 0;
-	while (y < map->hait)
-	{
-		free(map->point[y]);
-		y++;
+	if (map->point)
+	{	
+		while (y < map->hait)
+		{
+			free(map->point[y]);
+			y++;
+		}
+		free(map->point);
+		map->point = NULL;
 	}
-	free(map->point);
 }
 
 void	ft_error(char *error_msg, int sys_func)

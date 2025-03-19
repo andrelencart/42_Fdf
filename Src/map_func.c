@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/21 17:28:29 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:33:23 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	map_info(t_map *map, char *file)
 
 static void	map_cord_put(char *line, int y, t_map *map)
 {
-	int	x;
-	char *temp;
+	int		x;
+	char	*temp;
 
 	x = 0;
 	temp = line;
@@ -92,12 +92,10 @@ void	map_matriz(t_map *map, char *file)
 static int	is_retangular(char **map_row, int prev_row, int *fd)
 {
 	int	x;
-	
+
 	x = 0;
 	while (map_row[x] && (*map_row[x]) != '\n')
 		x++;
-	// ft_printf("prev: %d\n", prev_row);
-	// ft_printf("x: %d\n", x);
 	if (prev_row != -1 && prev_row != x)
 	{
 		close (*fd);
@@ -106,7 +104,7 @@ static int	is_retangular(char **map_row, int prev_row, int *fd)
 		exit (0);
 	}
 	if (prev_row != -1)
-		return prev_row;
+		return (prev_row);
 	return (x);
 }
 

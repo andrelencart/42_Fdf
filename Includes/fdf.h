@@ -6,13 +6,12 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/03 17:58:13 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:09:27 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-
 
 # include <stdio.h>
 # include <unistd.h>
@@ -136,13 +135,13 @@ bool	is_valid_number(char *str);
 void	last_space(char *line, t_map *map);
 
 // CLOSE_FUNC
-int		window_close(t_window *wind, t_map *map);
+int		window_close(t_window *wind);
 
 // KEYBOARD
 void	hook_control(t_fdf *fdf);
 int		key_projection_change(int key_code, t_fdf *fdf);
 int		key_press(int key_code, t_fdf *fdf);
-int	map_zoom(int key_code, int x, int y, t_fdf *fdf);
+int		map_zoom(int key_code, int x, int y, t_fdf *fdf);
 // DRAW_MAP
 void	dda_alg(t_map *map, t_window *img);
 void	dda_steps(t_map *map, t_window *img,t_point cord1, t_point cord2);
@@ -161,6 +160,8 @@ void	rotation_y(t_map *map);
 void	rotation_z(t_map *map);
 t_point	matxmul(float mat[3][3], t_point point);
 void	translation(int	key_code, t_fdf *fdf);
+void	rotate_map(int key_code, t_fdf *fdf);
+// void	rotate_map(t_fdf *fdf, int axis, int angle);
 
 // UTILS
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
