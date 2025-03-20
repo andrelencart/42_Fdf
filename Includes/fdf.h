@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/19 19:09:27 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:48:53 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ typedef struct s_fdf
 // INIT_FUNC
 void	window_init(t_window *wind);
 void	map_init(t_map *map, char *file);
-void	line_memory(t_point **points, int width, int height);
+void	line_memory(t_point **points, int width, int height, t_map *map);
 int		draw_img(t_fdf *fdf);
 void	restart_map(t_map *map);
 
@@ -142,6 +142,7 @@ void	hook_control(t_fdf *fdf);
 int		key_projection_change(int key_code, t_fdf *fdf);
 int		key_press(int key_code, t_fdf *fdf);
 int		map_zoom(int key_code, int x, int y, t_fdf *fdf);
+
 // DRAW_MAP
 void	dda_alg(t_map *map, t_window *img);
 void	dda_steps(t_map *map, t_window *img,t_point cord1, t_point cord2);
@@ -161,7 +162,6 @@ void	rotation_z(t_map *map);
 t_point	matxmul(float mat[3][3], t_point point);
 void	translation(int	key_code, t_fdf *fdf);
 void	rotate_map(int key_code, t_fdf *fdf);
-// void	rotate_map(t_fdf *fdf, int axis, int angle);
 
 // UTILS
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);

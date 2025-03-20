@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/18 14:30:07 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:39:07 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	restart_map(t_map *map)
 	map_matriz(map, map->file);
 }
 
-void	line_memory(t_point **points, int with, int hait)
+void	line_memory(t_point **points, int with, int hait, t_map *map)
 {
 	int	y;
 
@@ -55,7 +55,11 @@ void	line_memory(t_point **points, int with, int hait)
 	{
 		points[y] = malloc(sizeof(t_point) * (with));
 		if (!points[y])
+		{
+			free_cord(map);
 			ft_error(ERROR_ARGS, 0);
+			exit(1);
+		}
 		y++;
 	}
 }

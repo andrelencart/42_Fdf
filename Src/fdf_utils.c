@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:56:36 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/19 19:34:05 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:21:43 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	free_cord(t_map *map)
 	int	y;
 
 	y = 0;
-	if (map->point)
+	if (map && map->point)
 	{	
 		while (y < map->hait)
 		{
