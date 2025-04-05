@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:06:58 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/20 12:39:07 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/04/05 16:09:36 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	map_init(t_map *map, char *file)
 	map->orig_cord[Z] = 0;
 	map_info(map, file);
 	map->scale = 25;
+	map->z_scale = 1;
 	map->zoom = 1;
 	map_matriz(map, file);
 }

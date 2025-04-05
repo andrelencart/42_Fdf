@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/20 12:48:53 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/04/05 16:13:33 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 
 
 // MAP_DEF
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 1000
+# define HEIGHT 700
 
 // PROJECTION_KEYS
 # define ISOMETRIC 0
@@ -59,6 +59,10 @@
 # define D 100
 # define SRC_UP 4
 # define SRC_DOWN 5
+# define SHIFT_LEFT 65505
+# define SHIFT_RIGHT 65506
+# define PLUS 61
+# define MINUS 45
 
 // COLOR_DEF
 # define WHITE 0x00FFFFFF
@@ -103,6 +107,7 @@ typedef struct s_map
 	char 	**mtz;
 	int		ang[3];
 	int		scale;
+	int		z_scale;
 	float	zoom;
 	float	orig_cord[3];
 	int		hait;
@@ -163,6 +168,9 @@ t_point	matxmul(float mat[3][3], t_point point);
 void	translation(int	key_code, t_fdf *fdf);
 void	rotate_map(int key_code, t_fdf *fdf);
 
+// ALTITUDE
+void	update_z_scale(int key_code, t_map *map);
+
 // UTILS
 void	my_mlx_pixel_put(t_window *img, int x, int y, int color);
 int		testkey(int key_code, t_window *wind);
@@ -171,6 +179,5 @@ void	free_cord(t_map *map);
 void	ft_error(char *error_msg, int sys_func);
 int		fd_check(char *file);
 void	free_map(char **map);
-
 
 #endif // FDF_H

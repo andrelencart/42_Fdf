@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/20 12:24:22 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/04/05 16:14:00 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	map_cord_put(char *line, int y, t_map *map)
 		}
 		map->point[y][x].cord[X] = (x + 0.5 - (map->with / 2));
 		map->point[y][x].cord[Y] = (y + 0.5 - (map->hait / 2));
-		map->point[y][x].cord[Z] = ft_atoi(temp);
+		map->point[y][x].cord[Z] = ft_atoi(temp) * map->z_scale;
 		while (*temp && (*temp == '-' || *temp == '+' || ft_isdigit(*temp)))
 			temp++;
 		x++;
