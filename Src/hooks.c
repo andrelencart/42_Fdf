@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andrlencart <andrlencart@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:07:33 by andcarva          #+#    #+#             */
-/*   Updated: 2025/04/05 16:13:30 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:26:31 by andrlencart      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	hook_control(t_fdf *fdf)
 {
 	mlx_hook(fdf->window.mlx_window, 17, 0, window_close, fdf);
-	// mlx_key_hook(fdf->window.mlx_window, testkey, fdf);
+	mlx_key_hook(fdf->window.mlx_window, testkey, fdf);
 	mlx_hook(fdf->window.mlx_window, 2, 1L << 0, key_press, fdf);
 	mlx_mouse_hook(fdf->window.mlx_window, map_zoom, fdf);
 }

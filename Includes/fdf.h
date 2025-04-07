@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
+/*   By: andrlencart <andrlencart@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/04/05 16:13:33 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/04/06 16:04:59 by andrlencart      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@
 # define SRC_DOWN 5
 # define SHIFT_LEFT 65505
 # define SHIFT_RIGHT 65506
-# define PLUS 61
-# define MINUS 45
+# define PLUS 112
+# define MINUS 109
 
 // COLOR_DEF
 # define WHITE 0x00FFFFFF
