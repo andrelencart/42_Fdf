@@ -1,2 +1,9 @@
-# Fdf
-This project is about creating a simple wireframe model representation of a 3D land- scape by linking various points (x, y, z) thanks to line segments (edges).
+# 42_fdf
+
+**Fdf** is a simple wireframe model representation of a 3D landscape by linking points (x, y, z) with line segments.
+
+## Features
+
+- 3D wireframe rendering
+- Customizable colors
+- Fast and lightweight
