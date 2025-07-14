@@ -6,7 +6,7 @@
 #    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:09:01 by andcarva          #+#    #+#              #
-#    Updated: 2025/03/10 15:48:06 by andcarva         ###   ########.fr        #
+#    Updated: 2025/07/14 17:32:18 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS= -Wall -Wextra -Werror -g
 OBJ_DIR= Obj_Fdf
 SRC_DIR= Src
 LIBFT= Includes/Libft/libft.a
-MLX= minilibx-linux/libmlx.a
+MLX= minilibx/libmlx.a
 
 SRC_FILES= fdf.c init_destroy.c drawmap.c fdf_utils.c hooks.c parser_utils.c  \
 			map_func.c projections.c matriz_rot.c rot_trans.c
