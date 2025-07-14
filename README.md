@@ -58,4 +58,4 @@ This project is part of the 42 school curriculum and for educational purposes.
 
 ---
 
-Feel free to contribute or open issues if you find bugs or have suggestions!
+# Feel free to contribute or open issues if you find bugs or have suggestions!
