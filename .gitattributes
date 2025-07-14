@@ -1,0 +1,6 @@
+minilibx/*.1 linguist-language=Roff
+minilibx/*.man linguist-language=Roff
+minilibx/*.ms linguist-language=Roff
+minilibx/*.roff linguist-language=Roff
+minilibx/*.pl linguist-language=Perl
+minilibx/*.perl linguist-language=Perl

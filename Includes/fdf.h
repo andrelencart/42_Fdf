@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/04/15 13:02:22 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/14 17:33:44 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <stdbool.h>
 # include <math.h>
 # include "../Includes/Libft/libft.h"
-# include "../minilibx-linux/mlx.h"
+# include "../minilibx/mlx.h"
 
 
 // MAP_DEF

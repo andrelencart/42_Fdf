@@ -6,7 +6,7 @@
 #    By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:09:01 by andcarva          #+#    #+#              #
-#    Updated: 2025/07/14 17:32:18 by andcarva         ###   ########.fr        #
+#    Updated: 2025/07/14 17:36:32 by andcarva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,12 +39,12 @@ $(LIBFT):
 	@make -C ./Includes/Libft -s
 	
 $(MLX):
-	@make -C ./minilibx-linux -s
+	@make -C ./minilibx -s
 
 clean:
 	@rm -rf $(OBJ_DIR)
 	@make clean -C ./Includes/Libft -s
-	@make clean -C ./minilibx-linux -s
+	@make clean -C ./minilibx -s
 	
 fclean: clean
 	@rm -rf $(NAME)
