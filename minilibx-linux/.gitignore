@@ -1,3 +1,18 @@
+## Mlx related
+Makefile.gen
+/test/mlx-test
+
+## Editor
+.vscode/*
+*~
+\#*\#
+
+## Other
+.DS_STORE
+
+
+
+## Template from https://github.com/github/gitignore
 # Prerequisites
 *.d
 
@@ -35,9 +50,7 @@
 *.i*86
 *.x86_64
 *.hex
-Includes/.vscode/
-Includes/LICENSE
-Includes/README.md
+
 # Debug files
 *.dSYM/
 *.su
@@ -52,10 +65,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-
-Includes/.vscode/
-Includes/LICENSE
-Includes/README.md
-Includes/libft.pdf
-Includes/libft
-# minilibx-linux/

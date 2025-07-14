@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrlencart <andrlencart@student.42.fr>    +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/04/06 16:04:59 by andrlencart      ###   ########.fr       */
+/*   Updated: 2025/04/15 13:02:22 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 
 
 // MAP_DEF
-# define WIDTH 1000
-# define HEIGHT 700
+# define WIDTH 1920
+# define HEIGHT 1080
 
 // PROJECTION_KEYS
 # define ISOMETRIC 0
