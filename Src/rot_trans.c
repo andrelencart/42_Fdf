@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 15:35:02 by andcarva          #+#    #+#             */
-/*   Updated: 2025/04/05 16:13:40 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:15:34 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,8 @@ void	rotate_map(int key_code, t_fdf *fdf)
 	else if (key_code == D)
 		fdf->map.ang[Y] += 5;
 }
+
+// void	reset_map()
+// {
+	
+// }

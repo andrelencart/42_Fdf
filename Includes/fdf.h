@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/14 17:33:44 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/14 18:13:10 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,9 @@
 # define SRC_DOWN 5
 # define SHIFT_LEFT 65505
 # define SHIFT_RIGHT 65506
-# define PLUS 112
-# define MINUS 109
+# define P 112
+# define M 109
+# define R 114
 
 // COLOR_DEF
 # define WHITE 0x00FFFFFF

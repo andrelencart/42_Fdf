@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: andrlencart <andrlencart@student.42.fr>    +#+  +:+       +#+        */
+/*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:07:33 by andcarva          #+#    #+#             */
-/*   Updated: 2025/04/07 11:26:31 by andrlencart      ###   ########.fr       */
+/*   Updated: 2025/07/14 18:14:10 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int	key_press(int key_code, t_fdf *fdf)
 	else if (key_code == W || key_code == S \
 		|| key_code == A || key_code == D)
 		rotate_map(key_code, fdf);
-	else if (key_code == PLUS || key_code == MINUS)
+	else if (key_code == P || key_code == M)
 		update_z_scale(key_code, &fdf->map);
+	// else if (key_code == R)
+		// reset_map()
 	return (0);
 }
 
@@ -72,9 +74,9 @@ int	map_zoom(int key_code, int x, int y, t_fdf *fdf)
 
 void	update_z_scale(int key_code, t_map *map)
 {
-	if (key_code == PLUS)
+	if (key_code == P)
 		map->z_scale += 1;
-	else if (key_code == MINUS)
+	else if (key_code == M)
 	{
 		if (map->z_scale > 1.0)
 			map->z_scale -= 1;
