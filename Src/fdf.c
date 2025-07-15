@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:31:39 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 13:02:45 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 15:17:49 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,11 @@ void	parser(t_map *map, char *file)
 	error_extension(file);
 	map_init(map, file);
 	isometric(map);
+}
+
+int	testkey(int key_code, t_window *wind)
+{
+	(void)wind;
+	ft_printf("key_code: %d\n", key_code);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 13:02:54 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 15:16:10 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,5 +180,6 @@ void	free_cord(t_map *map);
 void	ft_error(char *error_msg, int sys_func);
 int		fd_check(char *file);
 void	free_map(char **map);
+int		ft_atoi_base(const char *str, int str_bas);
 
 #endif // FDF_H
