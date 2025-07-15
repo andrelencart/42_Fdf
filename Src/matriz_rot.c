@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:21:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/03/20 12:49:29 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:41:21 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rotation_x(t_map *map)
 	{
 		x = -1;
 		while (++x < map->with)
-			map->point[y][x] = matxmul(rot_x, map->point[y][x]);
+			map->point[y][x] = matxmul(rot_x, map->point[y][x], map->point[y][x].color);
 	}
 }
 
@@ -60,7 +60,7 @@ void	rotation_y(t_map *map)
 	{
 		x = -1;
 		while (++x < map->with)
-			map->point[y][x] = matxmul(rot_y, map->point[y][x]);
+			map->point[y][x] = matxmul(rot_y, map->point[y][x], map->point[y][x].color);
 	}
 }
 
@@ -86,11 +86,11 @@ void	rotation_z(t_map *map)
 	{
 		x = -1;
 		while (++x < map->with)
-			map->point[y][x] = matxmul(rot_z, map->point[y][x]);
+			map->point[y][x] = matxmul(rot_z, map->point[y][x], map->point[y][x].color);
 	}
 }
 
-t_point	matxmul(float mat[3][3], t_point point)
+t_point	matxmul(float mat[3][3], t_point point, int color)
 {
 	int		i;
 	int		j;
@@ -104,6 +104,7 @@ t_point	matxmul(float mat[3][3], t_point point)
 		while (++j < 3)
 		{
 			tmp.cord[i] += point.cord[j] * mat[i][j];
+			tmp.color = color;
 		}
 	}
 	return (tmp);

@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 15:54:05 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:41:37 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ void	projection_choice(t_map *map, int proj);
 void	rotation_x(t_map *map);
 void	rotation_y(t_map *map);
 void	rotation_z(t_map *map);
-t_point	matxmul(float mat[3][3], t_point point);
+t_point	matxmul(float mat[3][3], t_point point, int color);
 void	translation(int	key_code, t_fdf *fdf);
 void	rotate_map(int key_code, t_fdf *fdf);
 
