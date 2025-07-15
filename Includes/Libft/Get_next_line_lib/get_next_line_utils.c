@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 12:48:37 by andcarva          #+#    #+#             */
-/*   Updated: 2025/02/17 16:49:44 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:58:23 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ void	ft_buff_move(char *buffer)
 
 	i = 0;
 	j = 0;
-	while (buffer[i] != '\n' && buffer[i] != '\0')
+	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	if (buffer[i] == '\n')
 		i++;
-	while (buffer[j] != '\0')
+	while (buffer[i] != '\0')
 	{
 		buffer[j] = buffer[i];
 		i++;

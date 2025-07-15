@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 18:43:26 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 19:12:51 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,6 @@ void	map_matriz(t_map *map, char *file)
 	{
 		line = get_next_line(fd);
 		temp = line;
-		// last_space(temp, map);
-		// for (int y = 0; y < map->hait; y++)
-   		// 	 for (int x = 0; x < map->with; x++)
-        // 		printf("verify after parse color[%d][%d]: %06X\n", y, x, map->point[y][x].color);
 		map_cord_put(temp, y, map);
 		free(line);
 		y++;
@@ -103,24 +99,24 @@ void	map_matriz(t_map *map, char *file)
 	close (fd);
 }
 
-static int	is_retangular(char **map_row, int prev_row, int *fd)
-{
-	int	x;
+// static int	is_retangular(char **map_row, int prev_row, int *fd)
+// {
+// 	int	x;
 
-	x = 0;
-	while (map_row[x] && (*map_row[x]) != '\n')
-		x++;
-	if (prev_row != -1 && prev_row != x)
-	{
-		close (*fd);
-		ft_error(ERROR_FORMAT, 0);
-		free_map(map_row);
-		exit (0);
-	}
-	if (prev_row != -1)
-		return (prev_row);
-	return (x);
-}
+// 	x = 0;
+// 	while (map_row[x] && (*map_row[x]) != '\n')
+// 		x++;
+// 	if (prev_row != -1 && prev_row != x)
+// 	{
+// 		close (*fd);
+// 		ft_error(ERROR_FORMAT, 0);
+// 		free_map(map_row);
+// 		exit (0);
+// 	}
+// 	if (prev_row != -1)
+// 		return (prev_row);
+// 	return (x);
+// }
 
 void	map_format(char *file)
 {
@@ -140,7 +136,7 @@ void	map_format(char *file)
 		free(temp);
 		if (!map_row)
 			return ;
-		prev_row = is_retangular(map_row, prev_row, &fd);
+		// prev_row = is_retangular(map_row, prev_row, &fd);
 		line = get_next_line(fd);
 		free_map(map_row);
 	}

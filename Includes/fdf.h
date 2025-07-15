@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 16:37:12 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 18:41:37 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 19:12:26 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@
 
 // COLOR_DEF
 # define WHITE 0xFFFFFF
-# define BLACK 0x000000 
+# define BLACK 0x000000
+# define RED 0xFF0000
 
 // CORD_DEF
 # define X 0
