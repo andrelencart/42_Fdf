@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:07:33 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/14 18:14:10 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 13:05:29 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,13 @@ int	key_press(int key_code, t_fdf *fdf)
 		rotate_map(key_code, fdf);
 	else if (key_code == P || key_code == M)
 		update_z_scale(key_code, &fdf->map);
-	// else if (key_code == R)
-		// reset_map()
+	else if (key_code == R)
+	{
+
+		map_init(&fdf->map, fdf->map.file);
+		isometric(&fdf->map);
+        draw_map(&fdf->map, &fdf->window);
+	}
 	return (0);
 }
 
