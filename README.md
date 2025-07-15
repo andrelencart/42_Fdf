@@ -35,6 +35,7 @@ Replace `<map_file>` with the path to your `.fdf` map file.
 Here are the main keys you can use when running Fdf, **as implemented in this repository**:
 
 - **Arrow Keys** (`Up`, `Down`, `Left`, `Right`): Move the map up, down, left, or right
+- **R**: Reset Map
 - **W / S / A / D**: Rotate the map
     - W/S: Rotate X axis
     - A/D: Rotate Y axis
