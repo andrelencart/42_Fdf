@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 15:50:34 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 16:01:59 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,16 @@ void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 	float	step;
 	float	xin;
 	float	yin;
+	float	dx; 
+	float	dy;
 
-	map->point[Y][X].dx = (cord2.cord[X] * map->scale * map->zoom) \
+	dx = (cord2.cord[X] * map->scale * map->zoom) \
 		- (cord1.cord[X] * map->scale * map->zoom);
-	map->point[Y][X].dy = (cord2.cord[Y] * map->scale * map->zoom) \
+	dy = (cord2.cord[Y] * map->scale * map->zoom) \
 		- (cord1.cord[Y] * map->scale * map->zoom);
-	step = sqrt(pow(map->point[Y][X].dx, 2) + pow(map->point[Y][X].dy, 2));
-	xin = map->point[Y][X].dx / step;
-	yin = map->point[Y][X].dy / step;
+	step = sqrt(pow(dx, 2) + pow(dy, 2));
+	xin = dx / step;
+	yin = dy / step;
 	cord1.dx = map->orig_cord[X] + (cord1.cord[X] * map->scale * map->zoom);
 	cord1.dy = map->orig_cord[Y] + (cord1.cord[Y] * map->scale * map->zoom);
 	while (step >= 0)

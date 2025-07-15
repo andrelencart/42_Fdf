@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 15:51:29 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 16:09:05 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static void	map_cord_put(char *line, int y, t_map *map)
 			map->point[y][x].cord[Z] = ft_atoi(temp) * map->z_scale;
 			color_str = comma + 1;
 			map->point[y][x].color = ft_atoi_base(color_str, 16);
+			printf("color: %X\n", map->point[y][x].color);
 			*comma = ',';
 		}
 		else
