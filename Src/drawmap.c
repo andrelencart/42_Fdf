@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 16:04:07 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 16:01:59 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 17:45:17 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,15 @@ void	dda_alg(t_map *map, t_window *img)
 		while (x < map->with)
 		{
 			if (x != map->with - 1)
+			{
+				printf("drawing color at [%d][%d]: %06X\n", y, x, map->point[y][x].color);
 				dda_steps(map, img, map->point[y][x], map->point[y][x + 1]);
+			}
 			if (y != map->hait - 1)
+			{
+				printf("drawing color at [%d][%d]: %06X\n", y, x, map->point[y][x].color);
 				dda_steps(map, img, map->point[y][x], map->point[y + 1][x]);
+			}
 			x += 1;
 		}
 		y += 1;
@@ -60,6 +66,7 @@ void	dda_steps(t_map *map, t_window *img, t_point cord1, t_point cord2)
 	yin = dy / step;
 	cord1.dx = map->orig_cord[X] + (cord1.cord[X] * map->scale * map->zoom);
 	cord1.dy = map->orig_cord[Y] + (cord1.cord[Y] * map->scale * map->zoom);
+	printf("color: %d\n", cord1.color);
 	while (step >= 0)
 	{
 		if ((int)cord1.dx < WIDTH && (int)cord1.dx > 0 && \

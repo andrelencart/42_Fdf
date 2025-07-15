@@ -6,7 +6,7 @@
 /*   By: andcarva <andcarva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 14:19:54 by andcarva          #+#    #+#             */
-/*   Updated: 2025/07/15 16:09:05 by andcarva         ###   ########.fr       */
+/*   Updated: 2025/07/15 17:30:45 by andcarva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,54 +37,92 @@ void	map_info(t_map *map, char *file)
 	close(fd);
 }
 
+// static void	map_cord_put(char *line, int y, t_map *map)
+// {
+// 	int		x;
+// 	char	*temp;
+// 	char 	*comma;
+// 	char 	*color_str;
+
+// 	x = 0;
+// 	temp = line;
+// 	while (*temp && x < map->with)
+// 	{
+// 		while (*temp == ' ' || *temp == 9)
+// 			temp++;
+// 		comma = ft_strchr(temp, ',');
+// 		printf("coma: %s\n", comma);
+// 		if (comma)
+// 		{
+// 			*comma = '\0';
+// 			map->point[y][x].cord[Z] = ft_atoi(temp) * map->z_scale;
+// 			color_str = comma + 2;
+// 			map->point[y][x].color = ft_atoi_base(color_str, 16);
+// 			printf("color: %X\n", map->point[y][x].color);
+// 			*comma = ',';
+// 		}
+// 		else
+// 		{
+// 			map->point[y][x].cord[Z] = ft_atoi(temp) * map->z_scale;
+// 			map->point[y][x].color = WHITE;
+// 		}
+// 		// if (!is_valid_number(temp))
+// 		// {
+// 		// 	ft_error(ERROR_CHAR, 0);
+// 		// 	free(line);
+// 		// 	free_cord(map);
+// 		// 	exit (0);
+// 		// }
+// 		map->point[y][x].cord[X] = (x + 0.5 - (map->with / 2));
+// 		map->point[y][x].cord[Y] = (y + 0.5 - (map->hait / 2));
+// 		while (*temp && (*temp == '-' || *temp == '+' || ft_isdigit(*temp)))
+// 			temp++;
+// 		if (*temp == ',')
+// 		{
+// 			temp++;
+// 			while (*temp && (ft_isdigit(*temp) || (*temp >= 'a' && *temp <= 'f') \
+// 			|| (*temp >= 'A' && *temp <= 'F') || *temp == 'x' || *temp == 'X'))
+// 				temp++;
+// 		}
+// 		x++;
+// 	}
+// }
+
 static void	map_cord_put(char *line, int y, t_map *map)
 {
 	int		x;
-	char	*temp;
-	char 	*comma;
-	char 	*color_str;
-
-	x = 0;
-	temp = line;
-	while (*temp && x < map->with)
+	char	**cells = ft_split(line, ' ');
+	
+	if (!cells)
 	{
-		while (*temp == ' ' || *temp == 9)
-			temp++;
-		comma = ft_strchr(temp, ',');
+		ft_error(ERROR_INIT, 0);
+		exit(1);
+	}
+	for (x = 0; x < map->with; x++)
+	{
+		char *cell = cells[x];
+		char *comma = ft_strchr(cell, ',');
+		printf("coma: %s\n", comma);
 		if (comma)
 		{
 			*comma = '\0';
-			map->point[y][x].cord[Z] = ft_atoi(temp) * map->z_scale;
-			color_str = comma + 1;
+			map->point[y][x].cord[Z] = ft_atoi(cell) * map->z_scale;
+			char *color_str = comma + 1;
 			map->point[y][x].color = ft_atoi_base(color_str, 16);
-			printf("color: %X\n", map->point[y][x].color);
+			printf("assigned color[%d][%d]: %06X\n", y, x, map->point[y][x].color);
+			// map->point[y][x].color = ft_atoi_base(color_str, 16);
 			*comma = ',';
 		}
 		else
 		{
-			map->point[y][x].cord[Z] = ft_atoi(temp) * map->z_scale;
+			map->point[y][x].cord[Z] = ft_atoi(cell) * map->z_scale;
 			map->point[y][x].color = WHITE;
 		}
-		// if (!is_valid_number(temp))
-		// {
-		// 	ft_error(ERROR_CHAR, 0);
-		// 	free(line);
-		// 	free_cord(map);
-		// 	exit (0);
-		// }
 		map->point[y][x].cord[X] = (x + 0.5 - (map->with / 2));
 		map->point[y][x].cord[Y] = (y + 0.5 - (map->hait / 2));
-		while (*temp && (*temp == '-' || *temp == '+' || ft_isdigit(*temp)))
-			temp++;
-		if (*temp == ',')
-		{
-			temp++;
-			while (*temp && (ft_isdigit(*temp) || (*temp >= 'a' && *temp <= 'f') \
-			|| (*temp >= 'A' && *temp <= 'F') || *temp == 'x' || *temp == 'X'))
-				temp++;
-		}
-		x++;
 	}
+	x = 0;
+	free_map(cells);
 }
 
 void	map_matriz(t_map *map, char *file)
